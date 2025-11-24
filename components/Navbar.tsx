@@ -21,7 +21,6 @@ export default function Navbar() {
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Skills" },
-    { href: "#contact", label: "Contact" },
     { href: "/resume.pdf", label: "Resume", external: true },
   ];
 
@@ -42,7 +41,7 @@ export default function Navbar() {
     <nav
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-slate-950/95 backdrop-blur-md shadow-lg shadow-emerald-500/10 border-b border-emerald-500/20"
+          ? "bg-slate-950/95 backdrop-blur-md shadow-lg shadow-emerald-500/10"
           : "bg-transparent"
       }`}
     >

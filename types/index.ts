@@ -6,6 +6,8 @@ export interface Project {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
+  fullDescription?: string;
+  bgColor?: string;
 }
 
 export interface Skill {
