@@ -1,4 +1,4 @@
-import { Project, Skill, Experience } from "@/types";
+import { Project, Skill, Experience, Book } from "@/types";
 
 export const projects: Project[] = [
   {
@@ -334,4 +334,29 @@ export const experience: Experience[] = [
     description: "Part-time software engineer for a hydraulic fracturing company specializing in software and services for optimal hydraulic fracturing treatments. Primarily worked on the company website and fracking simulator while maintaining full-time position at Applied Invention.",
     tags: ["Full Stack"],
   },
+];
+
+export const books: Book[] = [
+  { id: "1", title: "Zero to One", author: "Peter Thiel", coverUrl: "/books/zero-to-one.jpg" },
+  { id: "2", title: "Thinking, Fast and Slow", author: "Daniel Kahneman", coverUrl: "/books/thinking-fast-slow.jpg" },
+  { id: "3", title: "Influence: The Psychology of Persuasion", author: "Robert Cialdini", coverUrl: "/books/influence.jpg" },
+  { id: "4", title: "Atomic Habits", author: "James Clear", coverUrl: "/books/atomic-habits.jpg" },
+  { id: "5", title: "Good to Great", author: "Jim Collins", coverUrl: "/books/good-to-great.jpg" },
+  { id: "6", title: "Extreme Ownership", author: "Jocko Willink", coverUrl: "/books/extreme-ownership.jpg" },
+  { id: "7", title: "Freedom's Forge", author: "Arthur Herman", coverUrl: "/books/freedoms-forge.jpg" },
+  { id: "8", title: "Apple in China", author: "Jack Linchuan Qiu", coverUrl: "/books/apple-in-china.jpg" },
+  { id: "9", title: "Skunk Works", author: "Ben Rich", coverUrl: "/books/skunk-works.jpg" },
+  { id: "10", title: "Trillion Dollar Coach", author: "Eric Schmidt", coverUrl: "/books/trillion-dollar-coach.jpg" },
+  { id: "11", title: "Surely You're Joking, Mr. Feynman!", author: "Richard Feynman", coverUrl: "/books/feynman.jpg" },
+  { id: "12", title: "Hooked: How to Build Habit-Forming Products", author: "Nir Eyal", coverUrl: "/books/hooked.jpg" },
+  { id: "13", title: "Irresistible", author: "Adam Alter", coverUrl: "/books/irresistible.jpg" },
+  { id: "14", title: "Elon Musk", author: "Ashlee Vance", coverUrl: "/books/elon-musk-vance.jpg" },
+  { id: "15", title: "Elon Musk", author: "Walter Isaacson", coverUrl: "/books/elon-musk-isaacson.jpg" },
+  { id: "16", title: "Steve Jobs", author: "Walter Isaacson", coverUrl: "/books/steve-jobs.jpg" },
+  { id: "17", title: "Turn the Ship Around!", author: "L. David Marquet", coverUrl: "/books/turn-ship-around.jpg" },
+  { id: "18", title: "The Infinite Game", author: "Simon Sinek", coverUrl: "/books/infinite-game.jpg" },
+  { id: "19", title: "The Predictioneer's Game", author: "Bruce Bueno de Mesquita", coverUrl: "/books/predictioneers-game.jpg" },
+  { id: "20", title: "Superintelligence", author: "Nick Bostrom", coverUrl: "/books/superintelligence.jpg" },
+  { id: "21", title: "Unit X", author: "Raj M. Shah", coverUrl: "/books/unit-x.jpg" },
+  { id: "22", title: "A Mind at Play", author: "Jimmy Soni", coverUrl: "/books/mind-at-play.jpg" },
 ];

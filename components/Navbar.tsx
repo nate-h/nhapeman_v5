@@ -21,6 +21,7 @@ export default function Navbar() {
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Skills" },
+    { href: "#books", label: "Books" },
     { href: "/resume.pdf", label: "Resume", external: true },
   ];
 

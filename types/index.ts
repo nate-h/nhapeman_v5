@@ -31,3 +31,10 @@ export interface Experience {
   description: string;
   tags: string[];
 }
+
+export interface Book {
+  id: string;
+  title: string;
+  author: string;
+  coverUrl?: string;
+}
