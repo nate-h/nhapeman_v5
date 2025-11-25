@@ -55,10 +55,15 @@ export default function Books() {
     <section id="books" className="w-full relative py-20">
       <div className="relative max-w-6xl mx-auto px-6 z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-          Books I've Read
+          Influential Career Reads
         </h2>
         <p className="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
-          A collection of books that have shaped my thinking and influenced my work.
+          Beyond writing code, software engineering depends on a broad set of skills:
+          communication, persuasion, initiative, leadership, resilience, developing other leaders,
+          aligning incentives, and staying agile without falling into bureaucracy.
+          Books like Turn the Ship Around and No Rules Rules have shaped me in those areas.
+          Others have pushed me to contribute to anything that strengthens my country —
+          see Skunk Works or Apple in China.
         </p>
 
         {/* Horizontal Scrolling Container */}
@@ -103,7 +108,7 @@ export default function Books() {
 
                 return (
                   <a
-                    key={book.id}
+                    key={book.coverUrl}
                     href={googleBooksUrl}
                     target="_blank"
                     rel="noopener noreferrer"
