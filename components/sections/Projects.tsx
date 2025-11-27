@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { projects } from "@/lib/data";
+import { projects } from "@/lib/data.tsx";
 import { FaGithub, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 import { Project } from "@/types";
 
@@ -160,7 +160,7 @@ export default function Projects() {
             <div className="p-8">
               <div className="prose prose-invert prose-emerald max-w-none">
                 {selectedProject.fullDescription ? (
-                  <div dangerouslySetInnerHTML={{ __html: selectedProject.fullDescription }} />
+                  <div>{selectedProject.fullDescription}</div>
                 ) : (
                   <p className="text-slate-300 text-lg leading-relaxed">
                     {selectedProject.description}

@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Project {
   id: string;
   title: string;
@@ -6,7 +8,7 @@ export interface Project {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
-  fullDescription?: string;
+  fullDescription?: ReactNode;
   bgColor?: string;
 }
 

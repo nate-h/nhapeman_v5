@@ -1,6 +1,6 @@
 "use client";
 
-import { skills } from "@/lib/data";
+import { skills } from "@/lib/data.tsx";
 
 export default function Skills() {
   const categories = Array.from(new Set(skills.map((skill) => skill.category)));

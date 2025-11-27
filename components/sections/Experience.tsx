@@ -1,6 +1,6 @@
 "use client";
 
-import { experience } from "@/lib/data";
+import { experience } from "@/lib/data.tsx";
 
 export default function Experience() {
   return (
