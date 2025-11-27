@@ -126,18 +126,7 @@ export default function Projects() {
             </button>
 
             {/* Header with gradient */}
-            <div className="relative h-64 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 overflow-hidden">
-              {selectedProject.imageUrl ? (
-                <img
-                  src={selectedProject.imageUrl}
-                  alt={selectedProject.title}
-                  className="absolute inset-0 w-full h-full object-contain p-12"
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center text-white text-9xl opacity-20 font-bold">
-                  {selectedProject.title.charAt(0)}
-                </div>
-              )}
+            <div className="relative h-32 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
               <div className="absolute bottom-6 left-6">
                 <h3 className="text-4xl font-bold text-white mb-2">

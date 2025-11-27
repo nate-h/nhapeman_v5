@@ -96,11 +96,35 @@ export const projects: Project[] = [
   {
     id: "3",
     title: "Image Effects",
-    description: "Computer vision examples that recreate Photoshop-like effects and demonstrate innovative image processing techniques. Includes various filters, transformations, and artistic effects.",
+    description: "A Jupyter notebook that contains a couple dozen image transformations, some recreating trivial Photoshop effects and others just having fun with OpenCV.",
     imageUrl: "/logos/image-effects.png",
     technologies: ["Python", "OpenCV", "Jupyter Notebook", "NumPy"],
     githubUrl: "https://github.com/nate-h/image-effects",
     bgColor: "bg-white",
+    fullDescription: (
+      <>
+        <img alt="image effects example" src="/logos/image-effects-2.png" style={{ width: "100%", marginBottom: "20px" }} />
+        <p>
+          A{" "}
+          <a href="https://github.com/nate-h/image-effects/blob/main/run.ipynb" target="_blank" rel="noopener noreferrer">
+            notebook containing
+          </a>{" "}
+          a couple dozen fun image transformations using mostly OpenCV and NumPy.
+        </p>
+        <br />
+        <p>
+          I love working with things I can see whether its: game development, frontend, or computer
+          vision problems. One of the first programs I created for fun was a{" "}
+          <a href="https://www.mathworks.com/matlabcentral/fileexchange/35975-picture-letter-recognition-software" target="_blank" rel="noopener noreferrer">
+            letter recognition software written in Matlab.
+          </a>{" "}
+          I&apos;ve been lucky enough to work on some computer vision problems in my career but wanted to
+          take it slow and explore all the features OpenCV provides. This project was that. A
+          deliberate attempt of playing with OpenCV on a ton of small problems so I can learn more
+          of the basics OpenCV provides.
+        </p>
+      </>
+    ),
   },
   {
     id: "4",
@@ -153,6 +177,9 @@ export const projects: Project[] = [
     bgColor: "bg-gray-900",
     fullDescription: (
       <>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <img src="/logos/react-logo.png" alt="React Logo" style={{ maxWidth: "300px", width: "100%" }} />
+        </div>
         <p>
           <a href="https://github.com/nate-h/fun-with-react" target="_blank" rel="noopener noreferrer">fun-with-react</a>
           {" "}is a collection of small React examples. Live example{" "}
@@ -273,6 +300,9 @@ export const projects: Project[] = [
     bgColor: "bg-slate-900",
     fullDescription: (
       <>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <img src="/logos/vue-logo.png" alt="Vue Logo" style={{ maxWidth: "300px", width: "100%" }} />
+        </div>
         <p>
           I wrote my previous personal website (version 3) using Vue and Sass as a learning experience. The
           biggest thing I wanted to learn was Vue since I came from an AngularJS background. For this
