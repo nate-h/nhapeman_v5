@@ -679,70 +679,14 @@ export default function ParallaxSpace() {
         <svg
           width="45"
           height="45"
-          viewBox="0 0 16 16"
+          viewBox="0 0 512 512"
           xmlns="http://www.w3.org/2000/svg"
           className="drop-shadow-lg"
         >
-          {/* Classic Space Invader shape */}
-          <g fill="#10b981" opacity="0.9">
-            {/* Top antennae */}
-            <rect x="4" y="0" width="2" height="2" />
-            <rect x="10" y="0" width="2" height="2" />
-
-            {/* Head */}
-            <rect x="3" y="2" width="2" height="2" />
-            <rect x="5" y="2" width="6" height="2" />
-            <rect x="11" y="2" width="2" height="2" />
-
-            {/* Eyes and body */}
-            <rect x="2" y="4" width="3" height="2" />
-            <rect x="7" y="4" width="2" height="2" />
-            <rect x="11" y="4" width="3" height="2" />
-
-            {/* Mid body */}
-            <rect x="2" y="6" width="12" height="2" />
-
-            {/* Lower body */}
-            <rect x="3" y="8" width="2" height="2" />
-            <rect x="6" y="8" width="4" height="2" />
-            <rect x="11" y="8" width="2" height="2" />
-
-            {/* Legs */}
-            <rect x="2" y="10" width="2" height="2" />
-            <rect x="5" y="10" width="2" height="2" />
-            <rect x="9" y="10" width="2" height="2" />
-            <rect x="12" y="10" width="2" height="2" />
-
-            {/* Feet */}
-            <rect x="1" y="12" width="2" height="2" />
-            <rect x="4" y="12" width="2" height="2" />
-            <rect x="10" y="12" width="2" height="2" />
-            <rect x="13" y="12" width="2" height="2" />
-          </g>
-
-          {/* Glow effect */}
-          <g fill="#10b981" opacity="0.3">
-            <rect x="4" y="0" width="2" height="2" />
-            <rect x="10" y="0" width="2" height="2" />
-            <rect x="3" y="2" width="2" height="2" />
-            <rect x="5" y="2" width="6" height="2" />
-            <rect x="11" y="2" width="2" height="2" />
-            <rect x="2" y="4" width="3" height="2" />
-            <rect x="7" y="4" width="2" height="2" />
-            <rect x="11" y="4" width="3" height="2" />
-            <rect x="2" y="6" width="12" height="2" />
-            <rect x="3" y="8" width="2" height="2" />
-            <rect x="6" y="8" width="4" height="2" />
-            <rect x="11" y="8" width="2" height="2" />
-            <rect x="2" y="10" width="2" height="2" />
-            <rect x="5" y="10" width="2" height="2" />
-            <rect x="9" y="10" width="2" height="2" />
-            <rect x="12" y="10" width="2" height="2" />
-            <rect x="1" y="12" width="2" height="2" />
-            <rect x="4" y="12" width="2" height="2" />
-            <rect x="10" y="12" width="2" height="2" />
-            <rect x="13" y="12" width="2" height="2" />
-          </g>
+          <path fill="#AC92EC" d="M469.344,266.664v-85.328h-42.656v-42.672H384v-21.328h42.688v-64h-64v42.656H320v42.672H192V95.992
+            h-42.656V53.336h-64v64H128v21.328H85.344v42.672H42.688v85.328H0v149.328h64v-85.328h21.344v85.328H128v42.672h106.688v-64h-85.344
+            v-21.328h213.344v21.328h-85.344v64H384v-42.672h42.688v-85.328H448v85.328h64V266.664H469.344z M192,245.336h-64v-64h64V245.336z
+             M384,245.336h-64v-64h64V245.336z"/>
         </svg>
       </div>
     </div>
