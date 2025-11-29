@@ -29,12 +29,20 @@ interface Star {
   animationDelay: number;
 }
 
+interface Alien {
+  x: number;
+  y: number;
+  direction: 1 | -1; // 1 for down, -1 for up
+  zigzagDirection: 1 | -1; // 1 for right, -1 for left
+}
+
 export default function ParallaxSpace() {
   const [asteroids, setAsteroids] = useState<Asteroid[]>([]);
   const [spaceship1, setSpaceship1] = useState<Spaceship>({ x: 0, y: 0, rotation: 0 });
   const [spaceship2, setSpaceship2] = useState<Spaceship>({ x: 0, y: 0, rotation: 0 });
   const [spaceship3, setSpaceship3] = useState<Spaceship>({ x: 0, y: 0, rotation: 0 });
   const [stars, setStars] = useState<Star[]>([]);
+  const [alien, setAlien] = useState<Alien>({ x: 20, y: 0, direction: 1, zigzagDirection: 1 });
   const [scrollY, setScrollY] = useState(0);
   const velocity1 = useRef({ x: 0, y: 0 });
   const velocity2 = useRef({ x: 0, y: 0 });
@@ -92,6 +100,14 @@ export default function ParallaxSpace() {
       x: viewportWidth / 2.5,
       y: viewportHeight * 1.5, // Experience section area
       rotation: 0,
+    });
+
+    // Initialize alien
+    setAlien({
+      x: viewportWidth * 0.2, // Start at 20% from left
+      y: 0, // Start at top
+      direction: 1,
+      zigzagDirection: 1,
     });
 
     // Scroll handler
@@ -247,6 +263,45 @@ export default function ParallaxSpace() {
         const angle = Math.atan2(velocity3.current.y, velocity3.current.x) * (180 / Math.PI);
 
         return { x: newX, y: newY, rotation: angle };
+      });
+
+      // Update alien with zig-zag motion
+      setAlien((prev) => {
+        const verticalSpeed = 0.25; // Vertical movement speed
+        const horizontalSpeed = 0.35; // Horizontal zig-zag speed
+        const documentHeight = viewportHeight * 3; // Full scrollable document height
+        const leftBound = viewportWidth * 0.1;
+        const rightBound = viewportWidth * 0.9;
+
+        let newY = prev.y + prev.direction * verticalSpeed;
+        let newX = prev.x + prev.zigzagDirection * horizontalSpeed;
+        let newDirection = prev.direction;
+        let newZigzagDirection = prev.zigzagDirection;
+
+        // Reverse vertical direction when reaching top or bottom of document
+        if (newY >= documentHeight) {
+          newY = documentHeight;
+          newDirection = -1; // Go up
+        } else if (newY <= 0) {
+          newY = 0;
+          newDirection = 1; // Go down
+        }
+
+        // Zig-zag: reverse horizontal direction at boundaries
+        if (newX >= rightBound) {
+          newX = rightBound;
+          newZigzagDirection = -1; // Go left
+        } else if (newX <= leftBound) {
+          newX = leftBound;
+          newZigzagDirection = 1; // Go right
+        }
+
+        return {
+          x: newX,
+          y: newY,
+          direction: newDirection,
+          zigzagDirection: newZigzagDirection,
+        };
       });
 
       animationFrameId = requestAnimationFrame(animate);
@@ -610,6 +665,85 @@ export default function ParallaxSpace() {
             }}
           />
         </div>
+      </div>
+
+      {/* Space Invader Alien */}
+      <div
+        className="absolute opacity-40"
+        style={{
+          left: `${alien.x}px`,
+          top: `${alien.y - parallaxOffset}px`,
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <svg
+          width="45"
+          height="45"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+          className="drop-shadow-lg"
+        >
+          {/* Classic Space Invader shape */}
+          <g fill="#10b981" opacity="0.9">
+            {/* Top antennae */}
+            <rect x="4" y="0" width="2" height="2" />
+            <rect x="10" y="0" width="2" height="2" />
+
+            {/* Head */}
+            <rect x="3" y="2" width="2" height="2" />
+            <rect x="5" y="2" width="6" height="2" />
+            <rect x="11" y="2" width="2" height="2" />
+
+            {/* Eyes and body */}
+            <rect x="2" y="4" width="3" height="2" />
+            <rect x="7" y="4" width="2" height="2" />
+            <rect x="11" y="4" width="3" height="2" />
+
+            {/* Mid body */}
+            <rect x="2" y="6" width="12" height="2" />
+
+            {/* Lower body */}
+            <rect x="3" y="8" width="2" height="2" />
+            <rect x="6" y="8" width="4" height="2" />
+            <rect x="11" y="8" width="2" height="2" />
+
+            {/* Legs */}
+            <rect x="2" y="10" width="2" height="2" />
+            <rect x="5" y="10" width="2" height="2" />
+            <rect x="9" y="10" width="2" height="2" />
+            <rect x="12" y="10" width="2" height="2" />
+
+            {/* Feet */}
+            <rect x="1" y="12" width="2" height="2" />
+            <rect x="4" y="12" width="2" height="2" />
+            <rect x="10" y="12" width="2" height="2" />
+            <rect x="13" y="12" width="2" height="2" />
+          </g>
+
+          {/* Glow effect */}
+          <g fill="#10b981" opacity="0.3">
+            <rect x="4" y="0" width="2" height="2" />
+            <rect x="10" y="0" width="2" height="2" />
+            <rect x="3" y="2" width="2" height="2" />
+            <rect x="5" y="2" width="6" height="2" />
+            <rect x="11" y="2" width="2" height="2" />
+            <rect x="2" y="4" width="3" height="2" />
+            <rect x="7" y="4" width="2" height="2" />
+            <rect x="11" y="4" width="3" height="2" />
+            <rect x="2" y="6" width="12" height="2" />
+            <rect x="3" y="8" width="2" height="2" />
+            <rect x="6" y="8" width="4" height="2" />
+            <rect x="11" y="8" width="2" height="2" />
+            <rect x="2" y="10" width="2" height="2" />
+            <rect x="5" y="10" width="2" height="2" />
+            <rect x="9" y="10" width="2" height="2" />
+            <rect x="12" y="10" width="2" height="2" />
+            <rect x="1" y="12" width="2" height="2" />
+            <rect x="4" y="12" width="2" height="2" />
+            <rect x="10" y="12" width="2" height="2" />
+            <rect x="13" y="12" width="2" height="2" />
+          </g>
+        </svg>
       </div>
     </div>
   );
