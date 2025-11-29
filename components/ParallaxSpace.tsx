@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Alien from "./Alien";
 
 interface Asteroid {
   id: number;
@@ -43,6 +44,8 @@ export default function ParallaxSpace() {
   const [spaceship3, setSpaceship3] = useState<Spaceship>({ x: 0, y: 0, rotation: 0 });
   const [stars, setStars] = useState<Star[]>([]);
   const [alien, setAlien] = useState<Alien>({ x: 20, y: 0, direction: 1, zigzagDirection: 1 });
+  const [alien2, setAlien2] = useState<Alien>({ x: 50, y: 0, direction: 1, zigzagDirection: 1 });
+  const [alien3, setAlien3] = useState<Alien>({ x: 80, y: 0, direction: 1, zigzagDirection: 1 });
   const [scrollY, setScrollY] = useState(0);
   const velocity1 = useRef({ x: 0, y: 0 });
   const velocity2 = useRef({ x: 0, y: 0 });
@@ -102,11 +105,25 @@ export default function ParallaxSpace() {
       rotation: 0,
     });
 
-    // Initialize alien
+    // Initialize aliens at different positions
     setAlien({
       x: viewportWidth * 0.2, // Start at 20% from left
       y: 0, // Start at top
       direction: 1,
+      zigzagDirection: 1,
+    });
+
+    setAlien2({
+      x: viewportWidth * 0.5, // Start at 50% (center)
+      y: viewportHeight * 1.5, // Start in middle of document
+      direction: 1,
+      zigzagDirection: -1, // Start moving left
+    });
+
+    setAlien3({
+      x: viewportWidth * 0.7, // Start at 70% from left
+      y: viewportHeight * 2.5, // Start near bottom of document
+      direction: -1, // Start moving up
       zigzagDirection: 1,
     });
 
@@ -294,6 +311,80 @@ export default function ParallaxSpace() {
         } else if (newX <= leftBound) {
           newX = leftBound;
           newZigzagDirection = 1; // Go right
+        }
+
+        return {
+          x: newX,
+          y: newY,
+          direction: newDirection,
+          zigzagDirection: newZigzagDirection,
+        };
+      });
+
+      // Update alien2 with zig-zag motion (slightly different speed)
+      setAlien2((prev) => {
+        const verticalSpeed = 0.28; // Slightly faster vertical
+        const horizontalSpeed = 0.32; // Slightly slower horizontal
+        const documentHeight = viewportHeight * 3;
+        const leftBound = viewportWidth * 0.1;
+        const rightBound = viewportWidth * 0.9;
+
+        let newY = prev.y + prev.direction * verticalSpeed;
+        let newX = prev.x + prev.zigzagDirection * horizontalSpeed;
+        let newDirection = prev.direction;
+        let newZigzagDirection = prev.zigzagDirection;
+
+        if (newY >= documentHeight) {
+          newY = documentHeight;
+          newDirection = -1;
+        } else if (newY <= 0) {
+          newY = 0;
+          newDirection = 1;
+        }
+
+        if (newX >= rightBound) {
+          newX = rightBound;
+          newZigzagDirection = -1;
+        } else if (newX <= leftBound) {
+          newX = leftBound;
+          newZigzagDirection = 1;
+        }
+
+        return {
+          x: newX,
+          y: newY,
+          direction: newDirection,
+          zigzagDirection: newZigzagDirection,
+        };
+      });
+
+      // Update alien3 with zig-zag motion (different speed pattern)
+      setAlien3((prev) => {
+        const verticalSpeed = 0.22; // Slower vertical
+        const horizontalSpeed = 0.38; // Faster horizontal
+        const documentHeight = viewportHeight * 3;
+        const leftBound = viewportWidth * 0.1;
+        const rightBound = viewportWidth * 0.9;
+
+        let newY = prev.y + prev.direction * verticalSpeed;
+        let newX = prev.x + prev.zigzagDirection * horizontalSpeed;
+        let newDirection = prev.direction;
+        let newZigzagDirection = prev.zigzagDirection;
+
+        if (newY >= documentHeight) {
+          newY = documentHeight;
+          newDirection = -1;
+        } else if (newY <= 0) {
+          newY = 0;
+          newDirection = 1;
+        }
+
+        if (newX >= rightBound) {
+          newX = rightBound;
+          newZigzagDirection = -1;
+        } else if (newX <= leftBound) {
+          newX = leftBound;
+          newZigzagDirection = 1;
         }
 
         return {
@@ -667,28 +758,10 @@ export default function ParallaxSpace() {
         </div>
       </div>
 
-      {/* Space Invader Alien */}
-      <div
-        className="absolute opacity-40"
-        style={{
-          left: `${alien.x}px`,
-          top: `${alien.y - parallaxOffset}px`,
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <svg
-          width="45"
-          height="45"
-          viewBox="0 0 512 512"
-          xmlns="http://www.w3.org/2000/svg"
-          className="drop-shadow-lg"
-        >
-          <path fill="#AC92EC" d="M469.344,266.664v-85.328h-42.656v-42.672H384v-21.328h42.688v-64h-64v42.656H320v42.672H192V95.992
-            h-42.656V53.336h-64v64H128v21.328H85.344v42.672H42.688v85.328H0v149.328h64v-85.328h21.344v85.328H128v42.672h106.688v-64h-85.344
-            v-21.328h213.344v21.328h-85.344v64H384v-42.672h42.688v-85.328H448v85.328h64V266.664H469.344z M192,245.336h-64v-64h64V245.336z
-             M384,245.336h-64v-64h64V245.336z"/>
-        </svg>
-      </div>
+      {/* Space Invader Aliens */}
+      <Alien x={alien.x} y={alien.y} parallaxOffset={parallaxOffset} color="#AC92EC" />
+      <Alien x={alien2.x} y={alien2.y} parallaxOffset={parallaxOffset} color="#FF8C00" />
+      <Alien x={alien3.x} y={alien3.y} parallaxOffset={parallaxOffset} color="#00FF00" />
     </div>
   );
 }
