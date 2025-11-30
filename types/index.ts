@@ -30,7 +30,7 @@ export interface Experience {
   logoUrl?: string;
   position: string;
   period: string;
-  description: string;
+  description: ReactNode;
   tags: string[];
 }
 

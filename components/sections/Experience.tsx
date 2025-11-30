@@ -51,9 +51,9 @@ export default function Experience() {
                     </p>
                   </div>
 
-                  <p className="text-slate-300 mb-4 leading-relaxed">
+                  <div className="text-slate-300 mb-4 leading-relaxed space-y-3">
                     {job.description}
-                  </p>
+                  </div>
 
                   <div className="flex flex-wrap gap-2">
                     {job.tags.map((tag) => (

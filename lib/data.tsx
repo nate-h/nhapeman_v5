@@ -8,7 +8,24 @@ export const experience: Experience[] = [
     logoUrl: "/logos/hrl.png",
     position: "Full Stack Engineer",
     period: "July 2021 - Present",
-    description: "Award recipient of the 2024 HRL Award for 'Work Excellence by an individual or Team on Critical Programs'. Full stack developer on quantum device testing frameworks, building multiple web applications for visualization and acquisition of large-scale quantum data. Developed zoomable, interactive JavaScript canvas applications for data analysis. Led development of a Python-based automated wafer probing framework that doubled testing throughput compared to the previous system. The framework emphasizes exceptional UX without compromising test speed, includes instrument demos for faster onboarding, mocked instruments for production testing and faster development, multi-system support per computer, and composite SMU capabilities.",
+    description: (
+      <>
+        <p>
+          Award recipient of the 2024 HRL Award for &apos;Work Excellence by an individual or Team on Critical Programs&apos;.
+        </p>
+        <p>
+          Full stack developer on quantum device testing frameworks, building multiple web applications for visualization
+          and acquisition of large-scale quantum data. Developed zoomable, interactive JavaScript canvas applications for
+          data analysis.
+        </p>
+        <p>
+          Led development of a Python-based automated wafer probing framework that doubled testing throughput compared to
+          the previous system. The framework emphasizes exceptional UX without compromising test speed, includes instrument
+          demos for faster onboarding, mocked instruments for production testing and faster development, multi-system support
+          per computer, and composite SMU capabilities.
+        </p>
+      </>
+    ),
     tags: ["Full Stack", "Python", "Vue.js", "React", "TypeScript", "Hardware Integration", "Data Visualization"],
   },
   {
@@ -17,7 +34,21 @@ export const experience: Experience[] = [
     logoUrl: "/logos/applied-invention.png",
     position: "Software Engineer",
     period: "June 2014 - June 2021",
-    description: "Worked on diverse challenging projects helping leading companies solve complex problems. Developed an in-house geo-spatial game engine built with C++ on Panda3D. Created and maintained an internal annotation website for machine learning projects, managing multi-stage data pipelines and providing data analysis insights. Responsibilities included full stack development, data science, and machine learning.",
+    description: (
+      <>
+        <p>
+          Worked on diverse challenging projects helping leading companies solve complex problems.
+        </p>
+        <p>
+          Developed an in-house geo-spatial game engine built with C++ on Panda3D. Created and maintained an internal
+          annotation website for machine learning projects, managing multi-stage data pipelines and providing data analysis
+          insights.
+        </p>
+        <p>
+          Responsibilities included full stack development, data science, and machine learning.
+        </p>
+      </>
+    ),
     tags: ["Full Stack", "Simulation / Game Development", "Machine Learning", "Data Science"],
   },
   {
@@ -26,7 +57,13 @@ export const experience: Experience[] = [
     logoUrl: "/logos/frackoptima.png",
     position: "Software Engineer (Part-time)",
     period: "May 2016 - October 2017",
-    description: "Part-time software engineer for a hydraulic fracturing company specializing in software and services for optimal hydraulic fracturing treatments. Primarily worked on the company website and fracking simulator while maintaining full-time position at Applied Invention.",
+    description: (
+      <p>
+        Part-time software engineer for a hydraulic fracturing company specializing in software and services for optimal
+        hydraulic fracturing treatments. Primarily worked on the company website and fracking simulator while maintaining
+        full-time position at Applied Invention.
+      </p>
+    ),
     tags: ["Full Stack"],
   },
 ];
