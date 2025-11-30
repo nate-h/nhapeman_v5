@@ -31,7 +31,9 @@ export default function Projects() {
           Featured Projects
         </h2>
         <p className="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects that showcase my skills and expertise.
+          Here are some of my favorite projects I've built just for fun.
+          Fair warning: hobby code follows hobby rules — I promise my professional work is much cleaner ;)
+
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

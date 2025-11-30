@@ -44,24 +44,16 @@ export default function Hero() {
           solutions from computer vision to music visualization.
         </p>
 
-        {/* Contact Info */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 text-slate-300">
-          <a
-            href="mailto:nhapeman@gmail.com"
-            className="flex items-center gap-2 hover:text-cyan-300 transition-colors"
-          >
-            <FaEnvelope className="text-emerald-400" />
-            <span>nhapeman@gmail.com</span>
-          </a>
-          <span className="hidden sm:block text-slate-600">&bull;</span>
-          <div className="flex items-center gap-2">
-            <FaMapMarkerAlt className="text-emerald-400" />
-            <span>Los Angeles</span>
-          </div>
-        </div>
 
         {/* Social Links */}
-        <div className="flex justify-center gap-6 mb-12">
+        <div className="flex justify-center gap-6 mb-8">
+          <a
+            href="mailto:nhapeman@gmail.com"
+            className="text-emerald-300 hover:text-cyan-300 transition-all duration-300 text-3xl hover:scale-110 transform"
+            aria-label="Email"
+          >
+            <FaEnvelope />
+          </a>
           <a
             href="https://github.com/nate-h"
             target="_blank"
@@ -82,14 +74,14 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="flex justify-center">
-          <a
-            href="#projects"
-            className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 rounded-lg font-semibold transition-all duration-300 shadow-lg shadow-emerald-500/50 hover:shadow-emerald-400/50 hover:scale-105 transform"
-          >
-            View My Work
-          </a>
+        {/* Contact Info */}
+        <div className="flex items-center justify-center gap-4 text-slate-300 text-sm">
+          <div className="flex items-center gap-2">
+            <FaMapMarkerAlt className="text-emerald-400" />
+            <span>Los Angeles</span>
+          </div>
         </div>
+
       </div>
     </section>
   );
