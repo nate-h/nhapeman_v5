@@ -45,6 +45,9 @@ export default function Hero() {
               in geospatial visualization, machine learning, and quantum computing. I thrive on complex,
               interesting work and love collaborating with people from different disciplines to build
               something greater than the sum of its parts.
+
+              I'm currently a Staff Software Engineer at HRL, leading development of an automated wafer testing framework.
+              Day to day, I work in Python and TypeScript building instrument control systems and analyzing experimental data.
             </p>
 
             {/* Social Links */}
