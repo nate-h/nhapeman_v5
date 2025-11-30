@@ -1,13 +1,20 @@
+![Portfolio Banner](./public/banner.png)
+
 # Portfolio Website
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+A modern, space-themed portfolio website built with Next.js, TypeScript, and Tailwind CSS featuring animated backgrounds and interactive elements.
 
 ## Features
 
-- **Hero/About Section**: Eye-catching landing page with introduction and social links
-- **Projects Showcase**: Display your projects with descriptions, technologies, and links
-- **Skills Section**: Organized display of your technical skills by category
-- **Contact Form**: Interactive contact form for visitors to reach out
+- **Hero Section**: Split-layout landing page with profile image, introduction, and social links
+- **Experience Timeline**: Professional work history with company details and achievements
+- **Projects Showcase**: Interactive project cards with detailed descriptions, technologies, and live demos
+- **Books Collection**: Visual display of favorite books in a grid layout
+- **Animated Space Background**: Custom parallax background with:
+  - Animated spaceships with AI-based pathfinding
+  - Floating asteroids with physics
+  - Twinkling stars
+  - Three zig-zagging space invader aliens (purple, orange, green)
 - **Responsive Design**: Fully responsive across all devices
 - **Analytics Integration**: Google Analytics setup for tracking visitor data
 - **Smooth Navigation**: Fixed navbar with smooth scrolling to sections
@@ -16,7 +23,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 - **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS v4
 - **Icons**: React Icons
 - **Analytics**: Google Analytics via @next/third-parties
 - **Fonts**: Geist Sans & Geist Mono
@@ -30,33 +37,23 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 ### Installation
 
-1. Clone the repository:
 ```bash
+# Clone the repository
 git clone <your-repo-url>
-cd portfolio
-```
+cd nhapeman_v5
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Set up environment variables:
-```bash
+# Set up environment variables
 cp .env.local.example .env.local
-```
+# Add your Google Analytics ID to .env.local:
+# NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
-4. Add your Google Analytics ID to `.env.local`:
-```
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-```
-
-5. Run the development server:
-```bash
+# Run the development server
 npm run dev
+# Open http://localhost:3000 in your browser
 ```
-
-6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Customization
 
@@ -65,36 +62,44 @@ npm run dev
 Update the following files with your information:
 
 1. **Hero Section** (`components/sections/Hero.tsx`):
+   - Profile image path
    - Your name
    - Tagline/title
    - Bio description
-   - Social media links
+   - Email and social media links
+   - Location
 
-2. **Projects Data** (`lib/data.ts`):
+2. **Experience Data** (`lib/data.tsx`):
+   - Add your work experience with company details
+   - Update job titles, periods, and descriptions
+   - Add relevant tags/technologies
+
+3. **Projects Data** (`lib/data.tsx`):
    - Add your projects with images, descriptions, and links
    - Update technologies used
+   - Include GitHub URLs and live demo links
+   - Add detailed project descriptions with media
 
-3. **Skills Data** (`lib/data.ts`):
-   - Add/remove skills
-   - Organize into categories
-
-4. **Contact Section** (`components/sections/Contact.tsx`):
-   - Email address
-   - Phone number
-   - Location
+4. **Books Collection** (`lib/data.tsx`):
+   - Add your favorite books with cover images
+   - Update authors and titles
 
 5. **Metadata** (`app/layout.tsx`):
    - Update title and description for SEO
 
 ### Styling
 
-- Colors and styles can be customized in `tailwind.config.ts`
+- Colors and styles can be customized in Tailwind classes
 - Global styles are in `app/globals.css`
-- Component-specific styles use Tailwind utility classes
+- Space background can be adjusted in `components/ParallaxSpace.tsx`
+- Alien colors and animations in `components/Alien.tsx` and `components/ParallaxSpace.tsx`
 
-### Adding Project Images
+### Adding Images
 
-Place your project images in the `public/projects` directory and reference them in `lib/data.ts`.
+- **Profile image**: Place in `public/logos/me.jpg`
+- **Project images**: Place in `public/logos/` and reference in `lib/data.tsx`
+- **Company logos**: Place in `public/logos/` for experience section
+- **Book covers**: Place in `public/books/` for books section
 
 ## Building for Production
 
@@ -122,31 +127,49 @@ This project can be deployed to various platforms:
 
 - **Netlify**: Connect your git repository
 - **AWS Amplify**: Follow AWS documentation for Next.js
-- **Docker**: Use the included Dockerfile (if added)
 
 ## Project Structure
 
 ```
-portfolio/
+nhapeman_v5/
 ├── app/
-│   ├── layout.tsx       # Root layout with analytics
-│   ├── page.tsx         # Home page
-│   └── globals.css      # Global styles
+│   ├── layout.tsx          # Root layout with ParallaxSpace background
+│   ├── page.tsx            # Home page with all sections
+│   └── globals.css         # Global styles and animations
 ├── components/
 │   ├── sections/
-│   │   ├── Hero.tsx     # Hero/About section
-│   │   ├── Projects.tsx # Projects showcase
-│   │   ├── Skills.tsx   # Skills display
-│   │   └── Contact.tsx  # Contact form
-│   ├── Navbar.tsx       # Navigation component
-│   └── Footer.tsx       # Footer component
+│   │   ├── Hero.tsx        # Hero section with split layout
+│   │   ├── Experience.tsx  # Work experience timeline
+│   │   ├── Projects.tsx    # Projects showcase with modals
+│   │   ├── Books.tsx       # Books collection grid
+│   │   └── Contact.tsx     # Contact information (in Footer)
+│   ├── Navbar.tsx          # Navigation component
+│   ├── Footer.tsx          # Footer component
+│   ├── ParallaxSpace.tsx   # Animated space background
+│   └── Alien.tsx           # Reusable alien SVG component
 ├── lib/
-│   ├── data.ts          # Portfolio data (projects, skills)
-│   └── analytics.ts     # Analytics utilities
+│   └── data.tsx            # Portfolio data (projects, experience, books, skills)
 ├── types/
-│   └── index.ts         # TypeScript type definitions
-└── public/              # Static assets
+│   └── index.ts            # TypeScript type definitions
+└── public/
+    ├── logos/              # Images and logos
+    ├── books/              # Book cover images
+    └── resume.pdf          # Resume file
 ```
+
+## Animated Background
+
+The space-themed background (`ParallaxSpace.tsx`) features:
+- 3 AI-controlled spaceships that navigate randomly
+- 10 rotating asteroids with wrapping physics
+- 50 twinkling stars
+- 3 zig-zagging aliens in different colors (purple, orange, green)
+- Parallax scrolling effects
+
+To customize the aliens:
+- Adjust colors in the `<Alien>` component calls in `ParallaxSpace.tsx`
+- Modify speeds and positions in the alien animation logic
+- Change alien count or add more with different behaviors
 
 ## License
 
