@@ -1,5 +1,36 @@
 import { Project, Skill, Experience, Book } from "@/types";
 
+
+export const experience: Experience[] = [
+  {
+    id: "1",
+    company: "HRL Laboratories",
+    logoUrl: "/logos/hrl.png",
+    position: "Full Stack Engineer",
+    period: "July 2021 - Present",
+    description: "Award recipient of the 2024 HRL Award for 'Work Excellence by an individual or Team on Critical Programs'. Full stack developer on quantum device testing frameworks, building multiple web applications for visualization and acquisition of large-scale quantum data. Developed zoomable, interactive JavaScript canvas applications for data analysis. Led development of a Python-based automated wafer probing framework that doubled testing throughput compared to the previous system. The framework emphasizes exceptional UX without compromising test speed, includes instrument demos for faster onboarding, mocked instruments for production testing and faster development, multi-system support per computer, and composite SMU capabilities.",
+    tags: ["Full Stack", "Python", "Vue.js", "React", "TypeScript", "Hardware Integration", "Data Visualization"],
+  },
+  {
+    id: "2",
+    company: "Applied Invention",
+    logoUrl: "/logos/applied-invention.png",
+    position: "Software Engineer",
+    period: "June 2014 - June 2021",
+    description: "Worked on diverse challenging projects helping leading companies solve complex problems. Developed an in-house geo-spatial game engine built with C++ on Panda3D. Created and maintained an internal annotation website for machine learning projects, managing multi-stage data pipelines and providing data analysis insights. Responsibilities included full stack development, data science, and machine learning.",
+    tags: ["Full Stack", "Simulation / Game Development", "Machine Learning", "Data Science"],
+  },
+  {
+    id: "3",
+    company: "FrackOptima",
+    logoUrl: "/logos/frackoptima.png",
+    position: "Software Engineer (Part-time)",
+    period: "May 2016 - October 2017",
+    description: "Part-time software engineer for a hydraulic fracturing company specializing in software and services for optimal hydraulic fracturing treatments. Primarily worked on the company website and fracking simulator while maintaining full-time position at Applied Invention.",
+    tags: ["Full Stack"],
+  },
+];
+
 export const projects: Project[] = [
   {
     id: "1",
@@ -405,6 +436,33 @@ export const projects: Project[] = [
   },
 ];
 
+export const books: Book[] = [
+  { title: "No Rules Rules", author: "Reed Hastings", coverUrl: "/books/no-rules-rules.jpg" },
+  { title: "Turn the Ship Around!", author: "L. David Marquet", coverUrl: "/books/turn-ship-around.jpg" },
+  { title: "Zero to One", author: "Peter Thiel", coverUrl: "/books/zero-to-one.jpg" },
+  { title: "Atomic Habits", author: "James Clear", coverUrl: "/books/atomic-habits.jpg" },
+  { title: "Apple in China", author: "Jack Linchuan Qiu", coverUrl: "/books/apple-in-china.jpg" },
+  { title: "Skunk Works", author: "Ben Rich", coverUrl: "/books/skunk-works.jpg" },
+  { title: "Influence: The Psychology of Persuasion", author: "Robert Cialdini", coverUrl: "/books/influence.jpg" },
+  { title: "Freedom's Forge", author: "Arthur Herman", coverUrl: "/books/freedoms-forge.jpg" },
+  { title: "Extreme Ownership", author: "Jocko Willink", coverUrl: "/books/extreme-ownership.jpg" },
+  { title: "Good to Great", author: "Jim Collins", coverUrl: "/books/good-to-great.jpg" },
+  { title: "Trillion Dollar Coach", author: "Eric Schmidt", coverUrl: "/books/trillion-dollar-coach.jpg" },
+  { title: "Thinking, Fast and Slow", author: "Daniel Kahneman", coverUrl: "/books/thinking-fast-slow.jpg" },
+  { title: "Surely You're Joking, Mr. Feynman!", author: "Richard Feynman", coverUrl: "/books/feynman.jpg" },
+  { title: "Hooked: How to Build Habit-Forming Products", author: "Nir Eyal", coverUrl: "/books/hooked.jpg" },
+  { title: "Irresistible", author: "Adam Alter", coverUrl: "/books/irresistible.jpg" },
+  { title: "Elon Musk", author: "Ashlee Vance", coverUrl: "/books/elon-musk-vance.jpg" },
+  { title: "Elon Musk", author: "Walter Isaacson", coverUrl: "/books/elon-musk-isaacson.jpg" },
+  { title: "Steve Jobs", author: "Walter Isaacson", coverUrl: "/books/steve-jobs.jpg" },
+  { title: "A Mind at Play", author: "Jimmy Soni", coverUrl: "/books/mind-at-play.jpg" },
+  { title: "The Infinite Game", author: "Simon Sinek", coverUrl: "/books/infinite-game.jpg" },
+  { title: "The Predictioneer's Game", author: "Bruce Bueno de Mesquita", coverUrl: "/books/predictioneers-game.jpg" },
+  { title: "Superintelligence", author: "Nick Bostrom", coverUrl: "/books/superintelligence.jpg" },
+  { title: "Unit X", author: "Raj M. Shah", coverUrl: "/books/unit-x.jpg" },
+];
+
+// TODO: possibly get back to this.
 export const skills: Skill[] = [
   // Frontend
   { name: "React", category: "Frontend" },
@@ -432,60 +490,4 @@ export const skills: Skill[] = [
   { name: "C++", category: "Tools" },
   { name: "OpenGL", category: "Tools" },
   { name: "Game Development", category: "Tools" },
-];
-
-export const experience: Experience[] = [
-  {
-    id: "1",
-    company: "HRL Laboratories",
-    logoUrl: "/logos/hrl.png",
-    position: "Full Stack Engineer",
-    period: "July 2021 - Present",
-    description: "Award recipient of the 2024 HRL Award for 'Work Excellence by an individual or Team on Critical Programs'. Full stack developer on quantum device testing frameworks, building multiple web applications for visualization and acquisition of large-scale quantum data. Developed zoomable, interactive JavaScript canvas applications for data analysis. Led development of a Python-based automated wafer probing framework that doubled testing throughput compared to the previous system. The framework emphasizes exceptional UX without compromising test speed, includes instrument demos for faster onboarding, mocked instruments for production testing and faster development, multi-system support per computer, and composite SMU capabilities.",
-    tags: ["Full Stack", "Python", "Vue.js", "React", "TypeScript", "Hardware Integration", "Data Visualization"],
-  },
-  {
-    id: "2",
-    company: "Applied Invention",
-    logoUrl: "/logos/applied-invention.png",
-    position: "Software Engineer",
-    period: "June 2014 - June 2021",
-    description: "Worked on diverse challenging projects helping leading companies solve complex problems. Developed an in-house geo-spatial game engine built with C++ on Panda3D. Created and maintained an internal annotation website for machine learning projects, managing multi-stage data pipelines and providing data analysis insights. Responsibilities included full stack development, data science, and machine learning.",
-    tags: ["Full Stack", "Simulation / Game Development", "Machine Learning", "Data Science"],
-  },
-  {
-    id: "3",
-    company: "FrackOptima",
-    logoUrl: "/logos/frackoptima.png",
-    position: "Software Engineer (Part-time)",
-    period: "May 2016 - October 2017",
-    description: "Part-time software engineer for a hydraulic fracturing company specializing in software and services for optimal hydraulic fracturing treatments. Primarily worked on the company website and fracking simulator while maintaining full-time position at Applied Invention.",
-    tags: ["Full Stack"],
-  },
-];
-
-export const books: Book[] = [
-  { title: "No Rules Rules", author: "Reed Hastings", coverUrl: "/books/no-rules-rules.jpg" },
-  { title: "Turn the Ship Around!", author: "L. David Marquet", coverUrl: "/books/turn-ship-around.jpg" },
-  { title: "Zero to One", author: "Peter Thiel", coverUrl: "/books/zero-to-one.jpg" },
-  { title: "Atomic Habits", author: "James Clear", coverUrl: "/books/atomic-habits.jpg" },
-  { title: "Apple in China", author: "Jack Linchuan Qiu", coverUrl: "/books/apple-in-china.jpg" },
-  { title: "Skunk Works", author: "Ben Rich", coverUrl: "/books/skunk-works.jpg" },
-  { title: "Influence: The Psychology of Persuasion", author: "Robert Cialdini", coverUrl: "/books/influence.jpg" },
-  { title: "Freedom's Forge", author: "Arthur Herman", coverUrl: "/books/freedoms-forge.jpg" },
-  { title: "Extreme Ownership", author: "Jocko Willink", coverUrl: "/books/extreme-ownership.jpg" },
-  { title: "Good to Great", author: "Jim Collins", coverUrl: "/books/good-to-great.jpg" },
-  { title: "Trillion Dollar Coach", author: "Eric Schmidt", coverUrl: "/books/trillion-dollar-coach.jpg" },
-  { title: "Thinking, Fast and Slow", author: "Daniel Kahneman", coverUrl: "/books/thinking-fast-slow.jpg" },
-  { title: "Surely You're Joking, Mr. Feynman!", author: "Richard Feynman", coverUrl: "/books/feynman.jpg" },
-  { title: "Hooked: How to Build Habit-Forming Products", author: "Nir Eyal", coverUrl: "/books/hooked.jpg" },
-  { title: "Irresistible", author: "Adam Alter", coverUrl: "/books/irresistible.jpg" },
-  { title: "Elon Musk", author: "Ashlee Vance", coverUrl: "/books/elon-musk-vance.jpg" },
-  { title: "Elon Musk", author: "Walter Isaacson", coverUrl: "/books/elon-musk-isaacson.jpg" },
-  { title: "Steve Jobs", author: "Walter Isaacson", coverUrl: "/books/steve-jobs.jpg" },
-  { title: "A Mind at Play", author: "Jimmy Soni", coverUrl: "/books/mind-at-play.jpg" },
-  { title: "The Infinite Game", author: "Simon Sinek", coverUrl: "/books/infinite-game.jpg" },
-  { title: "The Predictioneer's Game", author: "Bruce Bueno de Mesquita", coverUrl: "/books/predictioneers-game.jpg" },
-  { title: "Superintelligence", author: "Nick Bostrom", coverUrl: "/books/superintelligence.jpg" },
-  { title: "Unit X", author: "Raj M. Shah", coverUrl: "/books/unit-x.jpg" },
 ];
