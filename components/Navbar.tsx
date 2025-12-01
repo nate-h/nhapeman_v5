@@ -24,7 +24,11 @@ export default function Navbar() {
     { href: "/resume.pdf", label: "Resume", external: true },
   ];
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, external?: boolean) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    external?: boolean
+  ) => {
     if (external) {
       setIsOpen(false);
       return; // Let the browser handle the link normally
@@ -53,11 +57,7 @@ export default function Navbar() {
             onClick={(e) => handleClick(e, "#home")}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity pl-8"
           >
-            <img
-              src="/logos/logo.png"
-              alt="NH Logo"
-              className="w-10 h-10 object-contain"
-            />
+            <img src="/logos/logo.png" alt="NH Logo" className="w-10 h-10 object-contain" />
           </a>
 
           {/* Desktop Navigation */}

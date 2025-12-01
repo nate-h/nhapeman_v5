@@ -58,12 +58,11 @@ export default function Books() {
           Influential Career Reads
         </h2>
         <p className="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
-          Beyond writing code, software engineering depends on a broad set of skills:
-          communication, persuasion, initiative, leadership, resilience, developing other leaders,
-          aligning incentives, and staying agile without falling into bureaucracy.
-          Books like Turn the Ship Around and No Rules Rules have shaped me in those areas.
-          Others have pushed me to contribute to anything that strengthens my country —
-          see Skunk Works or Apple in China.
+          Beyond writing code, software engineering depends on a broad set of skills: communication,
+          persuasion, initiative, leadership, resilience, developing other leaders, aligning
+          incentives, and staying agile without falling into bureaucracy. Books like Turn the Ship
+          Around and No Rules Rules have shaped me in those areas. Others have pushed me to
+          contribute to anything that strengthens my country — see Skunk Works or Apple in China.
         </p>
 
         {/* Horizontal Scrolling Container */}
@@ -99,55 +98,53 @@ export default function Books() {
 
             {/* Scrollable Books */}
             <div ref={scrollContainerRef} className="overflow-x-auto pb-4 scrollbar-hide">
-            <div className="flex gap-6 px-4">
-              {books.map((book, index) => {
-                const searchQuery = `${book.title} ${book.author}`.replace(/\s+/g, '+');
-                const googleBooksUrl = `https://www.google.com/search?tbo=p&tbm=bks&q=${searchQuery}`;
-                const bookNumber = index + 1;
-                const totalBooks = books.length;
+              <div className="flex gap-6 px-4">
+                {books.map((book, index) => {
+                  const searchQuery = `${book.title} ${book.author}`.replace(/\s+/g, "+");
+                  const googleBooksUrl = `https://www.google.com/search?tbo=p&tbm=bks&q=${searchQuery}`;
+                  const bookNumber = index + 1;
+                  const totalBooks = books.length;
 
-                return (
-                  <a
-                    key={book.coverUrl}
-                    href={googleBooksUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-shrink-0 w-40 group cursor-pointer block"
-                  >
-                  {/* Book Cover */}
-                  <div className="relative aspect-[2/3] mb-3 rounded-lg overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 border border-emerald-500/20 group-hover:border-cyan-400/60 transition-all duration-300 shadow-lg group-hover:shadow-2xl group-hover:shadow-emerald-500/30">
-                    {/* Book Number Badge */}
-                    <div className="absolute top-2 right-2 bg-emerald-600/90 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded-full z-10">
-                      {bookNumber}/{totalBooks}
-                    </div>
-                    {book.coverUrl ? (
-                      <img
-                        src={book.coverUrl}
-                        alt={book.title}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center p-4 text-center">
-                        <p className="text-emerald-300 text-sm font-semibold leading-tight">
-                          {book.title}
-                        </p>
+                  return (
+                    <a
+                      key={book.coverUrl}
+                      href={googleBooksUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 w-40 group cursor-pointer block"
+                    >
+                      {/* Book Cover */}
+                      <div className="relative aspect-[2/3] mb-3 rounded-lg overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 border border-emerald-500/20 group-hover:border-cyan-400/60 transition-all duration-300 shadow-lg group-hover:shadow-2xl group-hover:shadow-emerald-500/30">
+                        {/* Book Number Badge */}
+                        <div className="absolute top-2 right-2 bg-emerald-600/90 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded-full z-10">
+                          {bookNumber}/{totalBooks}
+                        </div>
+                        {book.coverUrl ? (
+                          <img
+                            src={book.coverUrl}
+                            alt={book.title}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center p-4 text-center">
+                            <p className="text-emerald-300 text-sm font-semibold leading-tight">
+                              {book.title}
+                            </p>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
 
-                  {/* Book Info */}
-                  <div className="text-center">
-                    <h3 className="text-sm font-semibold text-cyan-300 mb-1 line-clamp-2 group-hover:text-emerald-300 transition-colors">
-                      {book.title}
-                    </h3>
-                    <p className="text-xs text-slate-400 line-clamp-1">
-                      {book.author}
-                    </p>
-                  </div>
-                </a>
-              );
-              })}
-            </div>
+                      {/* Book Info */}
+                      <div className="text-center">
+                        <h3 className="text-sm font-semibold text-cyan-300 mb-1 line-clamp-2 group-hover:text-emerald-300 transition-colors">
+                          {book.title}
+                        </h3>
+                        <p className="text-xs text-slate-400 line-clamp-1">{book.author}</p>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

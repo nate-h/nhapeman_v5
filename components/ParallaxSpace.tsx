@@ -408,9 +408,9 @@ export default function ParallaxSpace() {
 
   const getAsteroidPath = (shape: number, size: number) => {
     const paths = [
-      `M ${size * 0.40} ${size * 0.08} L ${size * 0.58} ${size * 0.05} L ${size * 0.75} ${size * 0.15} L ${size * 0.65} ${size * 0.28} L ${size * 0.92} ${size * 0.35} L ${size * 0.88} ${size * 0.52} L ${size * 0.72} ${size * 0.58} L ${size * 0.85} ${size * 0.72} L ${size * 0.68} ${size * 0.88} L ${size * 0.48} ${size * 0.95} L ${size * 0.35} ${size * 0.85} L ${size * 0.22} ${size * 0.78} L ${size * 0.18} ${size * 0.65} L ${size * 0.05} ${size * 0.55} L ${size * 0.15} ${size * 0.38} L ${size * 0.08} ${size * 0.25} L ${size * 0.22} ${size * 0.15} Z`,
-      `M ${size * 0.48} ${size * 0.02} L ${size * 0.68} ${size * 0.12} L ${size * 0.75} ${size * 0.08} L ${size * 0.95} ${size * 0.25} L ${size * 0.92} ${size * 0.42} L ${size * 0.98} ${size * 0.58} L ${size * 0.78} ${size * 0.68} L ${size * 0.88} ${size * 0.82} L ${size * 0.65} ${size * 0.90} L ${size * 0.45} ${size * 0.98} L ${size * 0.28} ${size * 0.88} L ${size * 0.32} ${size * 0.75} L ${size * 0.12} ${size * 0.68} L ${size * 0.02} ${size * 0.48} L ${size * 0.08} ${size * 0.32} L ${size * 0.18} ${size * 0.28} L ${size * 0.25} ${size * 0.15} Z`,
-      `M ${size * 0.52} ${size * 0.05} L ${size * 0.72} ${size * 0.02} L ${size * 0.88} ${size * 0.18} L ${size * 0.75} ${size * 0.32} L ${size * 0.95} ${size * 0.45} L ${size * 0.78} ${size * 0.52} L ${size * 0.92} ${size * 0.65} L ${size * 0.82} ${size * 0.80} L ${size * 0.58} ${size * 0.92} L ${size * 0.38} ${size * 0.98} L ${size * 0.35} ${size * 0.82} L ${size * 0.18} ${size * 0.85} L ${size * 0.08} ${size * 0.68} L ${size * 0.02} ${size * 0.45} L ${size * 0.12} ${size * 0.35} L ${size * 0.20} ${size * 0.22} L ${size * 0.32} ${size * 0.12} Z`,
+      `M ${size * 0.4} ${size * 0.08} L ${size * 0.58} ${size * 0.05} L ${size * 0.75} ${size * 0.15} L ${size * 0.65} ${size * 0.28} L ${size * 0.92} ${size * 0.35} L ${size * 0.88} ${size * 0.52} L ${size * 0.72} ${size * 0.58} L ${size * 0.85} ${size * 0.72} L ${size * 0.68} ${size * 0.88} L ${size * 0.48} ${size * 0.95} L ${size * 0.35} ${size * 0.85} L ${size * 0.22} ${size * 0.78} L ${size * 0.18} ${size * 0.65} L ${size * 0.05} ${size * 0.55} L ${size * 0.15} ${size * 0.38} L ${size * 0.08} ${size * 0.25} L ${size * 0.22} ${size * 0.15} Z`,
+      `M ${size * 0.48} ${size * 0.02} L ${size * 0.68} ${size * 0.12} L ${size * 0.75} ${size * 0.08} L ${size * 0.95} ${size * 0.25} L ${size * 0.92} ${size * 0.42} L ${size * 0.98} ${size * 0.58} L ${size * 0.78} ${size * 0.68} L ${size * 0.88} ${size * 0.82} L ${size * 0.65} ${size * 0.9} L ${size * 0.45} ${size * 0.98} L ${size * 0.28} ${size * 0.88} L ${size * 0.32} ${size * 0.75} L ${size * 0.12} ${size * 0.68} L ${size * 0.02} ${size * 0.48} L ${size * 0.08} ${size * 0.32} L ${size * 0.18} ${size * 0.28} L ${size * 0.25} ${size * 0.15} Z`,
+      `M ${size * 0.52} ${size * 0.05} L ${size * 0.72} ${size * 0.02} L ${size * 0.88} ${size * 0.18} L ${size * 0.75} ${size * 0.32} L ${size * 0.95} ${size * 0.45} L ${size * 0.78} ${size * 0.52} L ${size * 0.92} ${size * 0.65} L ${size * 0.82} ${size * 0.8} L ${size * 0.58} ${size * 0.92} L ${size * 0.38} ${size * 0.98} L ${size * 0.35} ${size * 0.82} L ${size * 0.18} ${size * 0.85} L ${size * 0.08} ${size * 0.68} L ${size * 0.02} ${size * 0.45} L ${size * 0.12} ${size * 0.35} L ${size * 0.2} ${size * 0.22} L ${size * 0.32} ${size * 0.12} Z`,
     ];
     return paths[shape];
   };
@@ -437,12 +437,7 @@ export default function ParallaxSpace() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle
-              cx={star.size}
-              cy={star.size}
-              r={star.size * 0.5}
-              fill="white"
-            >
+            <circle cx={star.size} cy={star.size} r={star.size * 0.5} fill="white">
               <animate
                 attributeName="opacity"
                 values="0.3;1;0.3"
@@ -451,13 +446,7 @@ export default function ParallaxSpace() {
                 repeatCount="indefinite"
               />
             </circle>
-            <circle
-              cx={star.size}
-              cy={star.size}
-              r={star.size}
-              fill="white"
-              opacity="0.3"
-            >
+            <circle cx={star.size} cy={star.size} r={star.size} fill="white" opacity="0.3">
               <animate
                 attributeName="opacity"
                 values="0;0.3;0"
@@ -571,18 +560,8 @@ export default function ParallaxSpace() {
             stroke="#0d9488"
             strokeWidth="0.5"
           />
-          <path
-            d="M15 15 L8 10 L10 15 Z"
-            fill="#064e3b"
-            stroke="#047857"
-            strokeWidth="0.5"
-          />
-          <path
-            d="M15 25 L8 30 L10 25 Z"
-            fill="#064e3b"
-            stroke="#047857"
-            strokeWidth="0.5"
-          />
+          <path d="M15 15 L8 10 L10 15 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
+          <path d="M15 25 L8 30 L10 25 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
           <circle cx="18" cy="20" r="3" fill="#0d9488" opacity="0.6" />
           <circle cx="10" cy="20" r="2" fill="#0d9488" opacity="0.4">
             <animate
@@ -641,18 +620,8 @@ export default function ParallaxSpace() {
             stroke="#0d9488"
             strokeWidth="0.5"
           />
-          <path
-            d="M15 15 L8 10 L10 15 Z"
-            fill="#064e3b"
-            stroke="#047857"
-            strokeWidth="0.5"
-          />
-          <path
-            d="M15 25 L8 30 L10 25 Z"
-            fill="#064e3b"
-            stroke="#047857"
-            strokeWidth="0.5"
-          />
+          <path d="M15 15 L8 10 L10 15 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
+          <path d="M15 25 L8 30 L10 25 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
           <circle cx="18" cy="20" r="3" fill="#0d9488" opacity="0.6" />
           <circle cx="10" cy="20" r="2" fill="#0d9488" opacity="0.4">
             <animate
@@ -711,18 +680,8 @@ export default function ParallaxSpace() {
             stroke="#0d9488"
             strokeWidth="0.5"
           />
-          <path
-            d="M15 15 L8 10 L10 15 Z"
-            fill="#064e3b"
-            stroke="#047857"
-            strokeWidth="0.5"
-          />
-          <path
-            d="M15 25 L8 30 L10 25 Z"
-            fill="#064e3b"
-            stroke="#047857"
-            strokeWidth="0.5"
-          />
+          <path d="M15 15 L8 10 L10 15 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
+          <path d="M15 25 L8 30 L10 25 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
           <circle cx="18" cy="20" r="3" fill="#0d9488" opacity="0.6" />
           <circle cx="10" cy="20" r="2" fill="#0d9488" opacity="0.4">
             <animate

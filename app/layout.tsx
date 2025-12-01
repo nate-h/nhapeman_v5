@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Nathanial Hapeman Portfolio",
-  description: "Portfolio of Nathanial Hapeman - Full Stack Developer specializing in React, Next.js, and modern web technologies",
+  description:
+    "Portfolio of Nathanial Hapeman - Full Stack Developer specializing in React, Next.js, and modern web technologies",
 };
 
 export default function RootLayout({
@@ -26,9 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ParallaxSpace />
         {children}
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />

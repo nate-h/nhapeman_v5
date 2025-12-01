@@ -4,20 +4,26 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa
 
 export default function Hero() {
   return (
-    <section id="home" className="w-full relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+    <section
+      id="home"
+      className="w-full relative min-h-screen flex items-center justify-center text-white overflow-hidden"
+    >
       {/* Animated stars background */}
-      <div className="absolute inset-0" style={{
-        backgroundImage: `radial-gradient(2px 2px at 20% 30%, white, transparent),
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `radial-gradient(2px 2px at 20% 30%, white, transparent),
                           radial-gradient(2px 2px at 60% 70%, white, transparent),
                           radial-gradient(1px 1px at 50% 50%, white, transparent),
                           radial-gradient(1px 1px at 80% 10%, white, transparent),
                           radial-gradient(2px 2px at 90% 60%, white, transparent),
                           radial-gradient(1px 1px at 33% 80%, white, transparent),
                           radial-gradient(1px 1px at 15% 55%, white, transparent)`,
-        backgroundSize: '200% 200%',
-        backgroundPosition: '0% 0%',
-        opacity: 0.5
-      }}></div>
+          backgroundSize: "200% 200%",
+          backgroundPosition: "0% 0%",
+          opacity: 0.5,
+        }}
+      ></div>
 
       <div className="relative max-w-6xl mx-auto px-6 py-20 z-10">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16">
@@ -41,13 +47,13 @@ export default function Hero() {
             </p>
 
             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              I'm a developer based in Los Angeles with over a decade of experience tackling challenging problems
-              in geospatial visualization, machine learning, and quantum computing. I thrive on complex,
-              interesting work and love collaborating with people from different disciplines to build
-              something greater than the sum of its parts.
-
-              I'm currently a Staff Software Engineer at HRL, leading development of an automated wafer testing framework.
-              Day to day, I work in Python and TypeScript building instrument control systems and analyzing experimental data.
+              I'm a developer based in Los Angeles with over a decade of experience tackling
+              challenging problems in geospatial visualization, machine learning, and quantum
+              computing. I thrive on complex, interesting work and love collaborating with people
+              from different disciplines to build something greater than the sum of its parts. I'm
+              currently a Staff Software Engineer at HRL, leading development of an automated wafer
+              testing framework. Day to day, I work in Python and TypeScript building instrument
+              control systems and analyzing experimental data.
             </p>
 
             {/* Social Links */}
@@ -78,7 +84,6 @@ export default function Hero() {
                 <FaLinkedin />
               </a>
             </div>
-
           </div>
         </div>
       </div>

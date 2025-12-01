@@ -40,15 +40,9 @@ export default function Experience() {
                 {/* Content */}
                 <div className="flex-1">
                   <div className="mb-3">
-                    <h3 className="text-2xl font-bold text-cyan-300 mb-1">
-                      {job.company}
-                    </h3>
-                    <p className="text-emerald-300 font-medium mb-1">
-                      {job.position}
-                    </p>
-                    <p className="text-slate-400 text-sm">
-                      {job.period}
-                    </p>
+                    <h3 className="text-2xl font-bold text-cyan-300 mb-1">{job.company}</h3>
+                    <p className="text-emerald-300 font-medium mb-1">{job.position}</p>
+                    <p className="text-slate-400 text-sm">{job.period}</p>
                   </div>
 
                   <div className="text-slate-300 mb-4 leading-relaxed space-y-3">

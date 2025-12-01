@@ -31,9 +31,8 @@ export default function Projects() {
           Featured Projects
         </h2>
         <p className="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
-          Here are some of my favorite projects I've built just for fun.
-          Fair warning: hobby code follows hobby rules — I promise my professional work is much cleaner ;)
-
+          Here are some of my favorite projects I've built just for fun. Fair warning: hobby code
+          follows hobby rules — I promise my professional work is much cleaner ;)
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -43,7 +42,9 @@ export default function Projects() {
               onClick={() => setSelectedProject(project)}
               className="bg-gradient-to-br from-slate-800/90 to-emerald-900/50 backdrop-blur-md rounded-xl border border-emerald-500/40 overflow-hidden hover:border-cyan-400/60 transition-all duration-300 group hover:shadow-2xl hover:shadow-emerald-500/30 cursor-pointer"
             >
-              <div className={`relative h-48 overflow-hidden flex items-center justify-center ${project.bgColor || 'bg-slate-900'}`}>
+              <div
+                className={`relative h-48 overflow-hidden flex items-center justify-center ${project.bgColor || "bg-slate-900"}`}
+              >
                 {project.imageUrl ? (
                   <img
                     src={project.imageUrl}
@@ -60,12 +61,8 @@ export default function Projects() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-cyan-300">
-                  {project.title}
-                </h3>
-                <p className="text-slate-300 mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
+                <h3 className="text-xl font-bold mb-2 text-cyan-300">{project.title}</h3>
+                <p className="text-slate-300 mb-4 text-sm leading-relaxed">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
@@ -133,9 +130,7 @@ export default function Projects() {
             <div className="relative h-32 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-4xl font-bold text-white mb-2">
-                  {selectedProject.title}
-                </h3>
+                <h3 className="text-4xl font-bold text-white mb-2">{selectedProject.title}</h3>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.technologies.map((tech) => (
                     <span

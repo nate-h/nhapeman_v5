@@ -25,9 +25,7 @@ export default function Contact() {
     }, 1000);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -49,9 +47,8 @@ export default function Contact() {
           <div>
             <h3 className="text-2xl font-bold mb-6 text-cyan-300">Let's Connect</h3>
             <p className="text-slate-300 mb-8">
-              I'm always interested in hearing about new projects and opportunities.
-              Whether you have a question or just want to say hi, I'll try my best
-              to get back to you!
+              I'm always interested in hearing about new projects and opportunities. Whether you
+              have a question or just want to say hi, I'll try my best to get back to you!
             </p>
 
             <div className="space-y-4">
@@ -138,7 +135,11 @@ export default function Contact() {
                 disabled={status === "sending"}
                 className="w-full px-8 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 disabled:from-slate-600 disabled:to-slate-700 rounded-lg font-semibold transition-all shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/40 hover:scale-105 transform"
               >
-                {status === "sending" ? "Sending..." : status === "success" ? "Sent!" : "Send Message"}
+                {status === "sending"
+                  ? "Sending..."
+                  : status === "success"
+                    ? "Sent!"
+                    : "Send Message"}
               </button>
 
               {status === "success" && (

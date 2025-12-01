@@ -160,6 +160,7 @@ nhapeman_v5/
 ## Animated Background
 
 The space-themed background (`ParallaxSpace.tsx`) features:
+
 - 3 AI-controlled spaceships that navigate randomly
 - 10 rotating asteroids with wrapping physics
 - 50 twinkling stars
@@ -167,6 +168,7 @@ The space-themed background (`ParallaxSpace.tsx`) features:
 - Parallax scrolling effects
 
 To customize the aliens:
+
 - Adjust colors in the `<Alien>` component calls in `ParallaxSpace.tsx`
 - Modify speeds and positions in the alien animation logic
 - Change alien count or add more with different behaviors
