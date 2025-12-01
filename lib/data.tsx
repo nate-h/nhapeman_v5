@@ -11,22 +11,39 @@ export const experience: Experience[] = [
     description: (
       <>
         <p>
-          Award recipient of the 2024 HRL Award for &apos;Work Excellence by an individual or Team on Critical Programs&apos;.
+          HRL is a world leader in silicon-based spin qubits for quantum computing. I help in many
+          ways but primarily by leading development on an automated wafer testing framework using
+          probers.
         </p>
-        <p>
-          Full stack developer on quantum device testing frameworks, building multiple web applications for visualization
-          and acquisition of large-scale quantum data. Developed zoomable, interactive JavaScript canvas applications for
-          data analysis.
-        </p>
-        <p>
-          Led development of a Python-based automated wafer probing framework that doubled testing throughput compared to
-          the previous system. The framework emphasizes exceptional UX without compromising test speed, includes instrument
-          demos for faster onboarding, mocked instruments for production testing and faster development, multi-system support
-          per computer, and composite SMU capabilities.
-        </p>
+        <ul style={{ marginLeft: "1.5rem", marginTop: "0.5rem", marginBottom: "0.5rem", listStyleType: "disc" }}>
+          <li style={{ marginBottom: "0.75rem" }}>
+            <strong>Lead developer on Python-based automated wafer probing framework</strong>
+            <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
+              <li>Delivered multi-fold performance improvements on inherited systems, doubling wafer testing capacity</li>
+              <li>The framework emphasizes exceptional UX without compromising test speed</li>
+              <li>Well documented with many demos </li>
+              <li>Mocked instruments for production testing and faster development</li>
+              <li>Multi-system support per computer, and composite SMU capabilities</li>
+            </ul>
+          </li>
+          <li style={{ marginBottom: "0.75rem" }}>
+            <strong>Full stack developer on quantum device testing frameworks</strong>
+            <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
+              <li>Built multiple web applications for visualization and acquisition of large-scale quantum-relevant data</li>
+              <li>Developed zoomable, interactive JavaScript canvas applications for data analysis</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Recognition</strong>
+            <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
+              <li>Recipient of the 2024 HRL Award for "Work Excellence by an individual or Team on Critical Programs"</li>
+              <li>Promoted off-cycle twice</li>
+            </ul>
+          </li>
+        </ul>
       </>
     ),
-    tags: ["Full Stack", "Python", "Vue.js", "React", "TypeScript", "Hardware Integration", "Data Visualization"],
+    tags: ["Full Stack", "Python", "Vue.js", "React", "TypeScript", "Hardware Integration", "Data Visualization", "Quasar", "Pandas", "NumPy", "HDF5", "Plotly"],
   },
   {
     id: "2",
@@ -37,35 +54,58 @@ export const experience: Experience[] = [
     description: (
       <>
         <p>
-          Worked on diverse challenging projects helping leading companies solve complex problems.
+          Applied Invention partners with large enterprises to design and deliver solutions to complex technical challenges.
+          Most of my work can be summarized in these three projects:
         </p>
-        <p>
-          Developed an in-house geo-spatial game engine built with C++ on Panda3D. Created and maintained an internal
-          annotation website for machine learning projects, managing multi-stage data pipelines and providing data analysis
-          insights.
-        </p>
-        <p>
-          Responsibilities included full stack development, data science, and machine learning.
-        </p>
+        <ul style={{ marginLeft: "1.5rem", marginTop: "0.5rem", marginBottom: "0.5rem", listStyleType: "disc" }}>
+          <li style={{ marginBottom: "0.75rem" }}>
+            <strong>Computer Vision Aquaculture Project</strong>
+            <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
+              <li>Lead architect and dev on an image annotation website</li>
+              <li>Worked extensively with annotation team to improve the website user experience</li>
+              <li>Imported and cleaned training data from third party sources</li>
+              <li>Built dashboard to monitor the annotation data pipeline and annotator stats</li>
+              <li>Developed several computer vision solutions, one of which prevented a costly human annotation step</li>
+              <li>Worked on Pachyderm data pipeline that turned raw images into machine annotations</li>
+            </ul>
+          </li>
+          <li style={{ marginBottom: "0.75rem" }}>
+            <strong>Rental Forecasting Project</strong>
+            <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
+              <li>Helped scale rental forecasting program to run on all US locations by reducing bottlenecks</li>
+              <li>Optimizing involved rewriting queries, parallelizing, memoizing, NumPy and profiling</li>
+              <li>Automated model accuracy checks and used slack bots to report discrepancies and result summaries</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Geospatial Simulation Development</strong>
+            <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
+              <li>Worked on several GIS projects using Cesium.js, UE4 based and in-house engines</li>
+              <li>Wrote entire file system diagnostics website for a map server</li>
+              <li>Added support for dynamic terrain layer switching and wrote custom shaders</li>
+              <li>Built a hotkey menu system that allows users to customize and define new hotkeys</li>
+            </ul>
+          </li>
+        </ul>
       </>
     ),
-    tags: ["Full Stack", "Simulation / Game Development", "Machine Learning", "Data Science"],
+    tags: ["Full Stack", "Simulation / Game Development", "Machine Learning", "Data Science", "Angular", "React", "Python", "Flask", "Javascript", "OpenCV", "Pandas", "NumPy"],
   },
-  {
-    id: "3",
-    company: "FrackOptima",
-    logoUrl: "/logos/frackoptima.png",
-    position: "Software Engineer (Part-time)",
-    period: "May 2016 - October 2017",
-    description: (
-      <p>
-        Part-time software engineer for a hydraulic fracturing company specializing in software and services for optimal
-        hydraulic fracturing treatments. Primarily worked on the company website and fracking simulator while maintaining
-        full-time position at Applied Invention.
-      </p>
-    ),
-    tags: ["Full Stack"],
-  },
+  // {
+  //   id: "3",
+  //   company: "FrackOptima",
+  //   logoUrl: "/logos/frackoptima.png",
+  //   position: "Software Engineer (Part-time)",
+  //   period: "May 2016 - October 2017",
+  //   description: (
+  //     <p>
+  //       Part-time software engineer for a hydraulic fracturing company specializing in software and services for optimal
+  //       hydraulic fracturing treatments. Primarily worked on the company website and fracking simulator while maintaining
+  //       full-time position at Applied Invention.
+  //     </p>
+  //   ),
+  //   tags: ["Full Stack"],
+  // },
 ];
 
 export const projects: Project[] = [
@@ -74,8 +114,9 @@ export const projects: Project[] = [
     title: "Whirling",
     description: "A music visualizer leveraging audio feature extraction and segmentation to generate representative visuals. Analyzes audio characteristics to create dynamic, synchronized visual effects.",
     imageUrl: "/logos/tiled_whirling.png",
-    technologies: ["Python", "Audio Processing", "Computer Vision", "NumPy"],
+    technologies: ["Python", "Audio Processing", "Spectrograms", "NumPy"],
     githubUrl: "https://github.com/nate-h/Whirling",
+    liveUrl: "https://vimeo.com/454955980",
     bgColor: "bg-black",
     fullDescription: (
       <>
@@ -168,6 +209,7 @@ export const projects: Project[] = [
     imageUrl: "/logos/image-effects.png",
     technologies: ["Python", "OpenCV", "Jupyter Notebook", "NumPy"],
     githubUrl: "https://github.com/nate-h/image-effects",
+    liveUrl: "https://github.com/nate-h/image-effects/blob/main/run.ipynb",
     bgColor: "bg-white",
     fullDescription: (
       <>
@@ -294,6 +336,7 @@ export const projects: Project[] = [
     description: "Core features of Super Mario Bros with some slight quirks. Built using c++ and SDL before I got my first job in computer programming. Learned a ton about OOP, threading and data structures while creating this.",
     imageUrl: "/logos/mario.jpg",
     technologies: ["C++", "SDL"],
+    liveUrl: "https://www.youtube.com/watch?v=EMslyjWIPGo",
     bgColor: "bg-black",
     fullDescription: (
       <>
@@ -323,6 +366,7 @@ export const projects: Project[] = [
     description: "A simple music player that made it a breeze to create playlists. The first and only program I wrote in Java to this day.",
     imageUrl: "/logos/mytunes.png",
     technologies: ["Java", "JavaZOOM"],
+    liveUrl: "https://www.youtube.com/watch?v=1c4erMvMnVQ",
     bgColor: "bg-gray-300",
     fullDescription: (
       <>
