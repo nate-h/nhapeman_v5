@@ -1,6 +1,6 @@
 "use client";
 
-import { books } from "@/lib/data.tsx";
+import { books } from "@/lib/data";
 import { Book } from "@/types";
 import { useRef, useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";

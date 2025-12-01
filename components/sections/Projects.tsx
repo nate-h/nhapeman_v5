@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { projects } from "@/lib/data.tsx";
+import { projects } from "@/lib/data";
 import { FaGithub, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 import { Project } from "@/types";
 

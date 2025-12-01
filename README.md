@@ -28,6 +28,24 @@ A modern, space-themed portfolio website built with Next.js, TypeScript, and Tai
 - **Analytics**: Google Analytics via @next/third-parties
 - **Fonts**: Geist Sans & Geist Mono
 
+## Code Quality
+
+This project uses automated code formatting and linting:
+
+- **Prettier**: Auto-formats code on save (VSCode) and on commit
+- **ESLint**: Lints and auto-fixes issues with Next.js best practices
+- **Husky + lint-staged**: Pre-commit hooks ensure all committed code is formatted
+
+**Available commands:**
+
+```bash
+npm run lint          # Check for linting issues
+npm run format        # Format all files with Prettier
+npm run format:check  # Check formatting without modifying files
+```
+
+**VSCode setup:** Settings are configured in `.vscode/settings.json` for format-on-save. Install recommended extensions when prompted.
+
 ## Getting Started
 
 ### Prerequisites
@@ -103,15 +121,11 @@ Update the following files with your information:
 
 ## Building for Production
 
-Build the optimized production bundle:
-
 ```bash
+# Build the optimized production bundle:
 npm run build
-```
 
-Start the production server:
-
-```bash
+# Start the production server:
 npm start
 ```
 
