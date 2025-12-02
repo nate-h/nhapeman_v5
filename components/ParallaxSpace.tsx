@@ -39,17 +39,23 @@ interface Alien {
 
 export default function ParallaxSpace() {
   const [asteroids, setAsteroids] = useState<Asteroid[]>([]);
-  const [spaceship1, setSpaceship1] = useState<Spaceship>({ x: 0, y: 0, rotation: 0 });
-  const [spaceship2, setSpaceship2] = useState<Spaceship>({ x: 0, y: 0, rotation: 0 });
-  const [spaceship3, setSpaceship3] = useState<Spaceship>({ x: 0, y: 0, rotation: 0 });
+  const [spaceships, setSpaceships] = useState<Spaceship[]>([
+    { x: 0, y: 0, rotation: 0 },
+    { x: 0, y: 0, rotation: 0 },
+    { x: 0, y: 0, rotation: 0 },
+  ]);
   const [stars, setStars] = useState<Star[]>([]);
-  const [alien, setAlien] = useState<Alien>({ x: 20, y: 0, direction: 1, zigzagDirection: 1 });
-  const [alien2, setAlien2] = useState<Alien>({ x: 50, y: 0, direction: 1, zigzagDirection: 1 });
-  const [alien3, setAlien3] = useState<Alien>({ x: 80, y: 0, direction: 1, zigzagDirection: 1 });
+  const [aliens, setAliens] = useState<Alien[]>([
+    { x: 20, y: 0, direction: 1, zigzagDirection: 1 },
+    { x: 50, y: 0, direction: 1, zigzagDirection: 1 },
+    { x: 80, y: 0, direction: 1, zigzagDirection: 1 },
+  ]);
   const [scrollY, setScrollY] = useState(0);
-  const velocity1 = useRef({ x: 0, y: 0 });
-  const velocity2 = useRef({ x: 0, y: 0 });
-  const velocity3 = useRef({ x: 0, y: 0 });
+  const velocities = useRef([
+    { x: 0, y: 0 },
+    { x: 0, y: 0 },
+    { x: 0, y: 0 },
+  ]);
   const initialized = useRef(false);
 
   useEffect(() => {
@@ -87,45 +93,45 @@ export default function ParallaxSpace() {
     setStars(initialStars);
 
     // Initialize spaceships
-    setSpaceship1({
-      x: viewportWidth / 2,
-      y: viewportHeight / 2,
-      rotation: 0,
-    });
-
-    setSpaceship2({
-      x: viewportWidth / 3,
-      y: viewportHeight * 2, // Lower on the page
-      rotation: 0,
-    });
-
-    setSpaceship3({
-      x: viewportWidth / 2.5,
-      y: viewportHeight * 1.5, // Experience section area
-      rotation: 0,
-    });
+    setSpaceships([
+      {
+        x: viewportWidth / 2,
+        y: viewportHeight / 2,
+        rotation: 0,
+      },
+      {
+        x: viewportWidth / 3,
+        y: viewportHeight * 2, // Lower on the page
+        rotation: 0,
+      },
+      {
+        x: viewportWidth / 2.5,
+        y: viewportHeight * 1.5, // Experience section area
+        rotation: 0,
+      },
+    ]);
 
     // Initialize aliens at different positions
-    setAlien({
-      x: viewportWidth * 0.2, // Start at 20% from left
-      y: 0, // Start at top
-      direction: 1,
-      zigzagDirection: 1,
-    });
-
-    setAlien2({
-      x: viewportWidth * 0.5, // Start at 50% (center)
-      y: viewportHeight * 1.5, // Start in middle of document
-      direction: 1,
-      zigzagDirection: -1, // Start moving left
-    });
-
-    setAlien3({
-      x: viewportWidth * 0.7, // Start at 70% from left
-      y: viewportHeight * 2.5, // Start near bottom of document
-      direction: -1, // Start moving up
-      zigzagDirection: 1,
-    });
+    setAliens([
+      {
+        x: viewportWidth * 0.2, // Start at 20% from left
+        y: 0, // Start at top
+        direction: 1,
+        zigzagDirection: 1,
+      },
+      {
+        x: viewportWidth * 0.5, // Start at 50% (center)
+        y: viewportHeight * 1.5, // Start in middle of document
+        direction: 1,
+        zigzagDirection: -1, // Start moving left
+      },
+      {
+        x: viewportWidth * 0.7, // Start at 70% from left
+        y: viewportHeight * 2.5, // Start near bottom of document
+        direction: -1, // Start moving up
+        zigzagDirection: 1,
+      },
+    ]);
 
     // Scroll handler
     const handleScroll = () => {
@@ -136,28 +142,30 @@ export default function ParallaxSpace() {
 
     // Animation loop
     let animationFrameId: number;
-    const targetPosition1 = { x: viewportWidth / 2, y: viewportHeight / 2 };
-    const targetPosition2 = { x: viewportWidth / 3, y: viewportHeight * 2 };
-    const targetPosition3 = { x: viewportWidth / 2.5, y: viewportHeight * 1.5 };
+    const targetPositions = [
+      { x: viewportWidth / 2, y: viewportHeight / 2 },
+      { x: viewportWidth / 3, y: viewportHeight * 2 },
+      { x: viewportWidth / 2.5, y: viewportHeight * 1.5 },
+    ];
 
-    const getRandomTarget1 = () => ({
-      x: 100 + Math.random() * (viewportWidth - 200),
-      y: 100 + Math.random() * (viewportHeight - 200),
+    const getRandomTargets = [
+      () => ({
+        x: 100 + Math.random() * (viewportWidth - 200),
+        y: 100 + Math.random() * (viewportHeight - 200),
+      }),
+      () => ({
+        x: 100 + Math.random() * (viewportWidth - 200),
+        y: viewportHeight * 1.5 + Math.random() * (viewportHeight * 1.5 - 200), // Lower half of page
+      }),
+      () => ({
+        x: 100 + Math.random() * (viewportWidth - 200),
+        y: viewportHeight * 1.0 + Math.random() * (viewportHeight * 1.0), // Experience section area
+      }),
+    ];
+
+    targetPositions.forEach((target, i) => {
+      Object.assign(target, getRandomTargets[i]());
     });
-
-    const getRandomTarget2 = () => ({
-      x: 100 + Math.random() * (viewportWidth - 200),
-      y: viewportHeight * 1.5 + Math.random() * (viewportHeight * 1.5 - 200), // Lower half of page
-    });
-
-    const getRandomTarget3 = () => ({
-      x: 100 + Math.random() * (viewportWidth - 200),
-      y: viewportHeight * 1.0 + Math.random() * (viewportHeight * 1.0), // Experience section area
-    });
-
-    Object.assign(targetPosition1, getRandomTarget1());
-    Object.assign(targetPosition2, getRandomTarget2());
-    Object.assign(targetPosition3, getRandomTarget3());
 
     const animate = () => {
       const speed = 1.5;
@@ -183,217 +191,89 @@ export default function ParallaxSpace() {
         })
       );
 
-      // Update spaceship 1
-      setSpaceship1((prev) => {
-        const dx = targetPosition1.x - prev.x;
-        const dy = targetPosition1.y - prev.y;
-        const distanceToTarget = Math.sqrt(dx * dx + dy * dy);
+      // Update all spaceships
+      setSpaceships((prevSpaceships) =>
+        prevSpaceships.map((prev, i) => {
+          const dx = targetPositions[i].x - prev.x;
+          const dy = targetPositions[i].y - prev.y;
+          const distanceToTarget = Math.sqrt(dx * dx + dy * dy);
 
-        if (distanceToTarget < 50) {
-          Object.assign(targetPosition1, getRandomTarget1());
-        }
+          if (distanceToTarget < 50) {
+            Object.assign(targetPositions[i], getRandomTargets[i]());
+          }
 
-        const desiredVelX = (dx / distanceToTarget) * speed;
-        const desiredVelY = (dy / distanceToTarget) * speed;
+          const desiredVelX = (dx / distanceToTarget) * speed;
+          const desiredVelY = (dy / distanceToTarget) * speed;
 
-        const steerStrength = 0.03;
-        velocity1.current.x += (desiredVelX - velocity1.current.x) * steerStrength;
-        velocity1.current.y += (desiredVelY - velocity1.current.y) * steerStrength;
+          const steerStrength = 0.03;
+          velocities.current[i].x += (desiredVelX - velocities.current[i].x) * steerStrength;
+          velocities.current[i].y += (desiredVelY - velocities.current[i].y) * steerStrength;
 
-        const currentSpeed = Math.sqrt(
-          velocity1.current.x * velocity1.current.x + velocity1.current.y * velocity1.current.y
-        );
-        if (currentSpeed > 0) {
-          velocity1.current.x = (velocity1.current.x / currentSpeed) * speed;
-          velocity1.current.y = (velocity1.current.y / currentSpeed) * speed;
-        }
+          const currentSpeed = Math.sqrt(
+            velocities.current[i].x * velocities.current[i].x +
+              velocities.current[i].y * velocities.current[i].y
+          );
+          if (currentSpeed > 0) {
+            velocities.current[i].x = (velocities.current[i].x / currentSpeed) * speed;
+            velocities.current[i].y = (velocities.current[i].y / currentSpeed) * speed;
+          }
 
-        const newX = prev.x + velocity1.current.x;
-        const newY = prev.y + velocity1.current.y;
+          const newX = prev.x + velocities.current[i].x;
+          const newY = prev.y + velocities.current[i].y;
 
-        const angle = Math.atan2(velocity1.current.y, velocity1.current.x) * (180 / Math.PI);
+          const angle =
+            Math.atan2(velocities.current[i].y, velocities.current[i].x) * (180 / Math.PI);
 
-        return { x: newX, y: newY, rotation: angle };
-      });
+          return { x: newX, y: newY, rotation: angle };
+        })
+      );
 
-      // Update spaceship 2
-      setSpaceship2((prev) => {
-        const dx = targetPosition2.x - prev.x;
-        const dy = targetPosition2.y - prev.y;
-        const distanceToTarget = Math.sqrt(dx * dx + dy * dy);
+      // Update all aliens with zig-zag motion
+      const alienSpeeds = [
+        { vertical: 0.25, horizontal: 0.35 },
+        { vertical: 0.28, horizontal: 0.32 },
+        { vertical: 0.22, horizontal: 0.38 },
+      ];
 
-        if (distanceToTarget < 50) {
-          Object.assign(targetPosition2, getRandomTarget2());
-        }
+      setAliens((prevAliens) =>
+        prevAliens.map((prev, i) => {
+          const verticalSpeed = alienSpeeds[i].vertical;
+          const horizontalSpeed = alienSpeeds[i].horizontal;
+          const documentHeight = viewportHeight * 3;
+          const leftBound = viewportWidth * 0.1;
+          const rightBound = viewportWidth * 0.9;
 
-        const desiredVelX = (dx / distanceToTarget) * speed;
-        const desiredVelY = (dy / distanceToTarget) * speed;
+          let newY = prev.y + prev.direction * verticalSpeed;
+          let newX = prev.x + prev.zigzagDirection * horizontalSpeed;
+          let newDirection = prev.direction;
+          let newZigzagDirection = prev.zigzagDirection;
 
-        const steerStrength = 0.03;
-        velocity2.current.x += (desiredVelX - velocity2.current.x) * steerStrength;
-        velocity2.current.y += (desiredVelY - velocity2.current.y) * steerStrength;
+          // Reverse vertical direction when reaching top or bottom of document
+          if (newY >= documentHeight) {
+            newY = documentHeight;
+            newDirection = -1; // Go up
+          } else if (newY <= 0) {
+            newY = 0;
+            newDirection = 1; // Go down
+          }
 
-        const currentSpeed = Math.sqrt(
-          velocity2.current.x * velocity2.current.x + velocity2.current.y * velocity2.current.y
-        );
-        if (currentSpeed > 0) {
-          velocity2.current.x = (velocity2.current.x / currentSpeed) * speed;
-          velocity2.current.y = (velocity2.current.y / currentSpeed) * speed;
-        }
+          // Zig-zag: reverse horizontal direction at boundaries
+          if (newX >= rightBound) {
+            newX = rightBound;
+            newZigzagDirection = -1; // Go left
+          } else if (newX <= leftBound) {
+            newX = leftBound;
+            newZigzagDirection = 1; // Go right
+          }
 
-        const newX = prev.x + velocity2.current.x;
-        const newY = prev.y + velocity2.current.y;
-
-        const angle = Math.atan2(velocity2.current.y, velocity2.current.x) * (180 / Math.PI);
-
-        return { x: newX, y: newY, rotation: angle };
-      });
-
-      // Update spaceship 3
-      setSpaceship3((prev) => {
-        const dx = targetPosition3.x - prev.x;
-        const dy = targetPosition3.y - prev.y;
-        const distanceToTarget = Math.sqrt(dx * dx + dy * dy);
-
-        if (distanceToTarget < 50) {
-          Object.assign(targetPosition3, getRandomTarget3());
-        }
-
-        const desiredVelX = (dx / distanceToTarget) * speed;
-        const desiredVelY = (dy / distanceToTarget) * speed;
-
-        const steerStrength = 0.03;
-        velocity3.current.x += (desiredVelX - velocity3.current.x) * steerStrength;
-        velocity3.current.y += (desiredVelY - velocity3.current.y) * steerStrength;
-
-        const currentSpeed = Math.sqrt(
-          velocity3.current.x * velocity3.current.x + velocity3.current.y * velocity3.current.y
-        );
-        if (currentSpeed > 0) {
-          velocity3.current.x = (velocity3.current.x / currentSpeed) * speed;
-          velocity3.current.y = (velocity3.current.y / currentSpeed) * speed;
-        }
-
-        const newX = prev.x + velocity3.current.x;
-        const newY = prev.y + velocity3.current.y;
-
-        const angle = Math.atan2(velocity3.current.y, velocity3.current.x) * (180 / Math.PI);
-
-        return { x: newX, y: newY, rotation: angle };
-      });
-
-      // Update alien with zig-zag motion
-      setAlien((prev) => {
-        const verticalSpeed = 0.25; // Vertical movement speed
-        const horizontalSpeed = 0.35; // Horizontal zig-zag speed
-        const documentHeight = viewportHeight * 3; // Full scrollable document height
-        const leftBound = viewportWidth * 0.1;
-        const rightBound = viewportWidth * 0.9;
-
-        let newY = prev.y + prev.direction * verticalSpeed;
-        let newX = prev.x + prev.zigzagDirection * horizontalSpeed;
-        let newDirection = prev.direction;
-        let newZigzagDirection = prev.zigzagDirection;
-
-        // Reverse vertical direction when reaching top or bottom of document
-        if (newY >= documentHeight) {
-          newY = documentHeight;
-          newDirection = -1; // Go up
-        } else if (newY <= 0) {
-          newY = 0;
-          newDirection = 1; // Go down
-        }
-
-        // Zig-zag: reverse horizontal direction at boundaries
-        if (newX >= rightBound) {
-          newX = rightBound;
-          newZigzagDirection = -1; // Go left
-        } else if (newX <= leftBound) {
-          newX = leftBound;
-          newZigzagDirection = 1; // Go right
-        }
-
-        return {
-          x: newX,
-          y: newY,
-          direction: newDirection,
-          zigzagDirection: newZigzagDirection,
-        };
-      });
-
-      // Update alien2 with zig-zag motion (slightly different speed)
-      setAlien2((prev) => {
-        const verticalSpeed = 0.28; // Slightly faster vertical
-        const horizontalSpeed = 0.32; // Slightly slower horizontal
-        const documentHeight = viewportHeight * 3;
-        const leftBound = viewportWidth * 0.1;
-        const rightBound = viewportWidth * 0.9;
-
-        let newY = prev.y + prev.direction * verticalSpeed;
-        let newX = prev.x + prev.zigzagDirection * horizontalSpeed;
-        let newDirection = prev.direction;
-        let newZigzagDirection = prev.zigzagDirection;
-
-        if (newY >= documentHeight) {
-          newY = documentHeight;
-          newDirection = -1;
-        } else if (newY <= 0) {
-          newY = 0;
-          newDirection = 1;
-        }
-
-        if (newX >= rightBound) {
-          newX = rightBound;
-          newZigzagDirection = -1;
-        } else if (newX <= leftBound) {
-          newX = leftBound;
-          newZigzagDirection = 1;
-        }
-
-        return {
-          x: newX,
-          y: newY,
-          direction: newDirection,
-          zigzagDirection: newZigzagDirection,
-        };
-      });
-
-      // Update alien3 with zig-zag motion (different speed pattern)
-      setAlien3((prev) => {
-        const verticalSpeed = 0.22; // Slower vertical
-        const horizontalSpeed = 0.38; // Faster horizontal
-        const documentHeight = viewportHeight * 3;
-        const leftBound = viewportWidth * 0.1;
-        const rightBound = viewportWidth * 0.9;
-
-        let newY = prev.y + prev.direction * verticalSpeed;
-        let newX = prev.x + prev.zigzagDirection * horizontalSpeed;
-        let newDirection = prev.direction;
-        let newZigzagDirection = prev.zigzagDirection;
-
-        if (newY >= documentHeight) {
-          newY = documentHeight;
-          newDirection = -1;
-        } else if (newY <= 0) {
-          newY = 0;
-          newDirection = 1;
-        }
-
-        if (newX >= rightBound) {
-          newX = rightBound;
-          newZigzagDirection = -1;
-        } else if (newX <= leftBound) {
-          newX = leftBound;
-          newZigzagDirection = 1;
-        }
-
-        return {
-          x: newX,
-          y: newY,
-          direction: newDirection,
-          zigzagDirection: newZigzagDirection,
-        };
-      });
+          return {
+            x: newX,
+            y: newY,
+            direction: newDirection,
+            zigzagDirection: newZigzagDirection,
+          };
+        })
+      );
 
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -537,190 +417,79 @@ export default function ParallaxSpace() {
         </div>
       ))}
 
-      {/* Spaceship 1 */}
-      <div
-        className="absolute opacity-55"
-        style={{
-          left: `${spaceship1.x}px`,
-          top: `${spaceship1.y - parallaxOffset}px`,
-          transform: `translate(-50%, -50%) rotate(${spaceship1.rotation}deg)`,
-        }}
-      >
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="drop-shadow-[0_0_4px_rgba(34,211,238,0.3)]"
-        >
-          <path
-            d="M30 20 L10 15 L10 25 Z"
-            fill="url(#spaceshipGradient1)"
-            stroke="#0d9488"
-            strokeWidth="0.5"
-          />
-          <path d="M15 15 L8 10 L10 15 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
-          <path d="M15 25 L8 30 L10 25 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
-          <circle cx="18" cy="20" r="3" fill="#0d9488" opacity="0.6" />
-          <circle cx="10" cy="20" r="2" fill="#0d9488" opacity="0.4">
-            <animate
-              attributeName="opacity"
-              values="0.2;0.5;0.2"
-              dur="0.8s"
-              repeatCount="indefinite"
-            />
-          </circle>
-          <defs>
-            <linearGradient id="spaceshipGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#064e3b" />
-              <stop offset="100%" stopColor="#0f766e" />
-            </linearGradient>
-          </defs>
-        </svg>
+      {/* Spaceships */}
+      {spaceships.map((spaceship, i) => (
         <div
-          className="absolute top-1/2 -translate-y-1/2"
+          key={i}
+          className="absolute opacity-55"
           style={{
-            right: "28px",
-            width: "20px",
-            height: "2px",
-            background: "linear-gradient(to left, rgba(13,148,136,0.3), transparent)",
-            filter: "blur(1px)",
+            left: `${spaceship.x}px`,
+            top: `${spaceship.y - parallaxOffset}px`,
+            transform: `translate(-50%, -50%) rotate(${spaceship.rotation}deg)`,
           }}
         >
-          <div
-            className="absolute inset-0 animate-pulse"
-            style={{
-              background: "linear-gradient(to left, rgba(6,78,59,0.2), transparent)",
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Spaceship 2 - Lower on page */}
-      <div
-        className="absolute opacity-55"
-        style={{
-          left: `${spaceship2.x}px`,
-          top: `${spaceship2.y - parallaxOffset}px`,
-          transform: `translate(-50%, -50%) rotate(${spaceship2.rotation}deg)`,
-        }}
-      >
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="drop-shadow-[0_0_4px_rgba(34,211,238,0.3)]"
-        >
-          <path
-            d="M30 20 L10 15 L10 25 Z"
-            fill="url(#spaceshipGradient2)"
-            stroke="#0d9488"
-            strokeWidth="0.5"
-          />
-          <path d="M15 15 L8 10 L10 15 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
-          <path d="M15 25 L8 30 L10 25 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
-          <circle cx="18" cy="20" r="3" fill="#0d9488" opacity="0.6" />
-          <circle cx="10" cy="20" r="2" fill="#0d9488" opacity="0.4">
-            <animate
-              attributeName="opacity"
-              values="0.2;0.5;0.2"
-              dur="0.8s"
-              repeatCount="indefinite"
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="drop-shadow-[0_0_4px_rgba(34,211,238,0.3)]"
+          >
+            <path
+              d="M30 20 L10 15 L10 25 Z"
+              fill={`url(#spaceshipGradient${i + 1})`}
+              stroke="#0d9488"
+              strokeWidth="0.5"
             />
-          </circle>
-          <defs>
-            <linearGradient id="spaceshipGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#064e3b" />
-              <stop offset="100%" stopColor="#0f766e" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div
-          className="absolute top-1/2 -translate-y-1/2"
-          style={{
-            right: "28px",
-            width: "20px",
-            height: "2px",
-            background: "linear-gradient(to left, rgba(13,148,136,0.3), transparent)",
-            filter: "blur(1px)",
-          }}
-        >
+            <path d="M15 15 L8 10 L10 15 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
+            <path d="M15 25 L8 30 L10 25 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
+            <circle cx="18" cy="20" r="3" fill="#0d9488" opacity="0.6" />
+            <circle cx="10" cy="20" r="2" fill="#0d9488" opacity="0.4">
+              <animate
+                attributeName="opacity"
+                values="0.2;0.5;0.2"
+                dur="0.8s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <defs>
+              <linearGradient id={`spaceshipGradient${i + 1}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#064e3b" />
+                <stop offset="100%" stopColor="#0f766e" />
+              </linearGradient>
+            </defs>
+          </svg>
           <div
-            className="absolute inset-0 animate-pulse"
+            className="absolute top-1/2 -translate-y-1/2"
             style={{
-              background: "linear-gradient(to left, rgba(6,78,59,0.2), transparent)",
+              right: "28px",
+              width: "20px",
+              height: "2px",
+              background: "linear-gradient(to left, rgba(13,148,136,0.3), transparent)",
+              filter: "blur(1px)",
             }}
-          />
-        </div>
-      </div>
-
-      {/* Spaceship 3 - Middle area */}
-      <div
-        className="absolute opacity-55"
-        style={{
-          left: `${spaceship3.x}px`,
-          top: `${spaceship3.y - parallaxOffset}px`,
-          transform: `translate(-50%, -50%) rotate(${spaceship3.rotation}deg)`,
-        }}
-      >
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="drop-shadow-[0_0_4px_rgba(34,211,238,0.3)]"
-        >
-          <path
-            d="M30 20 L10 15 L10 25 Z"
-            fill="url(#spaceshipGradient3)"
-            stroke="#0d9488"
-            strokeWidth="0.5"
-          />
-          <path d="M15 15 L8 10 L10 15 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
-          <path d="M15 25 L8 30 L10 25 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
-          <circle cx="18" cy="20" r="3" fill="#0d9488" opacity="0.6" />
-          <circle cx="10" cy="20" r="2" fill="#0d9488" opacity="0.4">
-            <animate
-              attributeName="opacity"
-              values="0.2;0.5;0.2"
-              dur="0.8s"
-              repeatCount="indefinite"
+          >
+            <div
+              className="absolute inset-0 animate-pulse"
+              style={{
+                background: "linear-gradient(to left, rgba(6,78,59,0.2), transparent)",
+              }}
             />
-          </circle>
-          <defs>
-            <linearGradient id="spaceshipGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#064e3b" />
-              <stop offset="100%" stopColor="#0f766e" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div
-          className="absolute top-1/2 -translate-y-1/2"
-          style={{
-            right: "28px",
-            width: "20px",
-            height: "2px",
-            background: "linear-gradient(to left, rgba(13,148,136,0.3), transparent)",
-            filter: "blur(1px)",
-          }}
-        >
-          <div
-            className="absolute inset-0 animate-pulse"
-            style={{
-              background: "linear-gradient(to left, rgba(6,78,59,0.2), transparent)",
-            }}
-          />
+          </div>
         </div>
-      </div>
+      ))}
 
       {/* Space Invader Aliens */}
-      <Alien x={alien.x} y={alien.y} parallaxOffset={parallaxOffset} color="#AC92EC" />
-      <Alien x={alien2.x} y={alien2.y} parallaxOffset={parallaxOffset} color="#FF8C00" />
-      <Alien x={alien3.x} y={alien3.y} parallaxOffset={parallaxOffset} color="#00FF00" />
+      {aliens.map((alien, i) => (
+        <Alien
+          key={i}
+          x={alien.x}
+          y={alien.y}
+          parallaxOffset={parallaxOffset}
+          color={["#AC92EC", "#FF8C00", "#00FF00"][i]}
+        />
+      ))}
     </div>
   );
 }
