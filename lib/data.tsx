@@ -64,6 +64,7 @@ export const experience: Experience[] = [
     tags: [
       "Full Stack",
       "Python",
+      "FastAPI",
       "Vue.js",
       "React",
       "TypeScript",
@@ -71,9 +72,11 @@ export const experience: Experience[] = [
       "Data Visualization",
       "Quasar",
       "Pandas",
+      "SQLAlchemy",
       "NumPy",
       "HDF5",
       "Plotly",
+      "Sass",
     ],
   },
   {
@@ -151,6 +154,7 @@ export const experience: Experience[] = [
       "Simulation / Game Development",
       "Machine Learning",
       "Data Science",
+      "PostgreSQL",
       "Angular",
       "React",
       "Python",
@@ -159,6 +163,8 @@ export const experience: Experience[] = [
       "OpenCV",
       "Pandas",
       "NumPy",
+      "C++",
+      "Sass",
     ],
   },
   // {

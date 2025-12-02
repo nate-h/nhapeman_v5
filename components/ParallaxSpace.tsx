@@ -59,7 +59,9 @@ export default function ParallaxSpace() {
   const initialized = useRef(false);
 
   useEffect(() => {
-    if (initialized.current) return;
+    if (initialized.current) {
+      return;
+    }
     initialized.current = true;
 
     const viewportWidth = window.innerWidth;
@@ -78,6 +80,7 @@ export default function ParallaxSpace() {
       shape: Math.floor(Math.random() * 3),
     }));
 
+    // eslint-disable-next-line -- not worried about penalty cost.
     setAsteroids(initialAsteroids);
 
     // Initialize stars
