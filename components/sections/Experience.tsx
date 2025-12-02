@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { experience } from "@/lib/data";
 
 export default function Experience() {
@@ -22,12 +23,13 @@ export default function Experience() {
               <div className="flex flex-col md:flex-row gap-6">
                 {/* Logo */}
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 bg-slate-900/80 rounded-lg border border-emerald-500/40 flex items-center justify-center overflow-hidden">
+                  <div className="relative w-20 h-20 bg-slate-900/80 rounded-lg border border-emerald-500/40 flex items-center justify-center overflow-hidden p-2">
                     {job.logoUrl ? (
-                      <img
+                      <Image
                         src={job.logoUrl}
                         alt={`${job.company} logo`}
-                        className="w-full h-full object-contain p-2"
+                        fill
+                        className="object-contain p-2"
                       />
                     ) : (
                       <span className="text-3xl font-bold text-emerald-400">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Project, Skill, Experience, Book } from "@/types";
 
 export const experience: Experience[] = [
@@ -51,8 +52,8 @@ export const experience: Experience[] = [
             <strong>Recognition</strong>
             <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
               <li>
-                Recipient of the 2024 HRL Award for "Work Excellence by an individual or Team on
-                Critical Programs"
+                Recipient of the 2024 HRL Award for 'Work Excellence by an individual or Team on
+                Critical Programs'
               </li>
               <li>Promoted off-cycle twice</li>
             </ul>
@@ -296,10 +297,12 @@ export const projects: Project[] = [
     bgColor: "bg-white",
     fullDescription: (
       <>
-        <img
+        <Image
           alt="image effects example"
           src="/logos/image-effects-2.png"
-          style={{ width: "100%", marginBottom: "20px" }}
+          width={800}
+          height={400}
+          style={{ width: "100%", height: "auto", marginBottom: "20px" }}
         />
         <p>
           A{" "}
@@ -385,10 +388,12 @@ export const projects: Project[] = [
     fullDescription: (
       <>
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
-          <img
+          <Image
             src="/logos/react-logo.png"
             alt="React Logo"
-            style={{ maxWidth: "300px", width: "100%" }}
+            width={300}
+            height={300}
+            style={{ maxWidth: "300px", width: "100%", height: "auto" }}
           />
         </div>
         <p>
@@ -532,10 +537,12 @@ export const projects: Project[] = [
     fullDescription: (
       <>
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
-          <img
+          <Image
             src="/logos/vue-logo.png"
             alt="Vue Logo"
-            style={{ maxWidth: "300px", width: "100%" }}
+            width={300}
+            height={300}
+            style={{ maxWidth: "300px", width: "100%", height: "auto" }}
           />
         </div>
         <p>

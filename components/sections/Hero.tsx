@@ -1,6 +1,7 @@
 "use client";
 
-import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import Image from "next/image";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -29,10 +30,13 @@ export default function Hero() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16">
           {/* Left: Profile Image */}
           <div className="flex-shrink-0">
-            <img
+            <Image
               src="/logos/me.jpg"
               alt="Nathanial Hapeman"
+              width={256}
+              height={256}
               className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-emerald-400/50 shadow-lg shadow-emerald-500/30"
+              priority
             />
           </div>
 

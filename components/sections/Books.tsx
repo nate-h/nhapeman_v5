@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { books } from "@/lib/data";
-import { Book } from "@/types";
 import { useRef, useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -120,10 +120,11 @@ export default function Books() {
                           {bookNumber}/{totalBooks}
                         </div>
                         {book.coverUrl ? (
-                          <img
+                          <Image
                             src={book.coverUrl}
                             alt={book.title}
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center p-4 text-center">

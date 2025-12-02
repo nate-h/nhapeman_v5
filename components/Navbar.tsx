@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
@@ -57,7 +58,13 @@ export default function Navbar() {
             onClick={(e) => handleClick(e, "#home")}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity pl-8"
           >
-            <img src="/logos/logo.png" alt="NH Logo" className="w-10 h-10 object-contain" />
+            <Image
+              src="/logos/logo.png"
+              alt="NH Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10 object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}

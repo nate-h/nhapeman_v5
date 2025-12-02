@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { projects } from "@/lib/data";
 import { FaGithub, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 import { Project } from "@/types";
@@ -46,10 +47,11 @@ export default function Projects() {
                 className={`relative h-48 overflow-hidden flex items-center justify-center ${project.bgColor || "bg-slate-900"}`}
               >
                 {project.imageUrl ? (
-                  <img
+                  <Image
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-contain"
+                    fill
+                    className="object-contain"
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600">
