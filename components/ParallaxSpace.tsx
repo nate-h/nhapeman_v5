@@ -2,6 +2,9 @@
 
 import { useEffect, useState, useRef } from "react";
 import Alien from "./Alien";
+import Star from "./Star";
+import Asteroid from "./Asteroid";
+import Spaceship from "./Spaceship";
 
 interface Asteroid {
   id: number;
@@ -289,15 +292,6 @@ export default function ParallaxSpace() {
     };
   }, []);
 
-  const getAsteroidPath = (shape: number, size: number) => {
-    const paths = [
-      `M ${size * 0.4} ${size * 0.08} L ${size * 0.58} ${size * 0.05} L ${size * 0.75} ${size * 0.15} L ${size * 0.65} ${size * 0.28} L ${size * 0.92} ${size * 0.35} L ${size * 0.88} ${size * 0.52} L ${size * 0.72} ${size * 0.58} L ${size * 0.85} ${size * 0.72} L ${size * 0.68} ${size * 0.88} L ${size * 0.48} ${size * 0.95} L ${size * 0.35} ${size * 0.85} L ${size * 0.22} ${size * 0.78} L ${size * 0.18} ${size * 0.65} L ${size * 0.05} ${size * 0.55} L ${size * 0.15} ${size * 0.38} L ${size * 0.08} ${size * 0.25} L ${size * 0.22} ${size * 0.15} Z`,
-      `M ${size * 0.48} ${size * 0.02} L ${size * 0.68} ${size * 0.12} L ${size * 0.75} ${size * 0.08} L ${size * 0.95} ${size * 0.25} L ${size * 0.92} ${size * 0.42} L ${size * 0.98} ${size * 0.58} L ${size * 0.78} ${size * 0.68} L ${size * 0.88} ${size * 0.82} L ${size * 0.65} ${size * 0.9} L ${size * 0.45} ${size * 0.98} L ${size * 0.28} ${size * 0.88} L ${size * 0.32} ${size * 0.75} L ${size * 0.12} ${size * 0.68} L ${size * 0.02} ${size * 0.48} L ${size * 0.08} ${size * 0.32} L ${size * 0.18} ${size * 0.28} L ${size * 0.25} ${size * 0.15} Z`,
-      `M ${size * 0.52} ${size * 0.05} L ${size * 0.72} ${size * 0.02} L ${size * 0.88} ${size * 0.18} L ${size * 0.75} ${size * 0.32} L ${size * 0.95} ${size * 0.45} L ${size * 0.78} ${size * 0.52} L ${size * 0.92} ${size * 0.65} L ${size * 0.82} ${size * 0.8} L ${size * 0.58} ${size * 0.92} L ${size * 0.38} ${size * 0.98} L ${size * 0.35} ${size * 0.82} L ${size * 0.18} ${size * 0.85} L ${size * 0.08} ${size * 0.68} L ${size * 0.02} ${size * 0.45} L ${size * 0.12} ${size * 0.35} L ${size * 0.2} ${size * 0.22} L ${size * 0.32} ${size * 0.12} Z`,
-    ];
-    return paths[shape];
-  };
-
   // Parallax offset - moves slower than scroll
   const parallaxOffset = scrollY * 0.3;
 
@@ -305,182 +299,17 @@ export default function ParallaxSpace() {
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
       {/* Stars */}
       {stars.map((star) => (
-        <div
-          key={star.id}
-          className="absolute"
-          style={{
-            left: `${star.x}px`,
-            top: `${star.y - parallaxOffset * 0.5}px`, // Different parallax speed
-          }}
-        >
-          <svg
-            width={star.size * 2}
-            height={star.size * 2}
-            viewBox={`0 0 ${star.size * 2} ${star.size * 2}`}
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx={star.size} cy={star.size} r={star.size * 0.5} fill="white">
-              <animate
-                attributeName="opacity"
-                values="0.3;1;0.3"
-                dur={`${star.animationDuration}s`}
-                begin={`${star.animationDelay}s`}
-                repeatCount="indefinite"
-              />
-            </circle>
-            <circle cx={star.size} cy={star.size} r={star.size} fill="white" opacity="0.3">
-              <animate
-                attributeName="opacity"
-                values="0;0.3;0"
-                dur={`${star.animationDuration}s`}
-                begin={`${star.animationDelay}s`}
-                repeatCount="indefinite"
-              />
-            </circle>
-          </svg>
-        </div>
+        <Star key={star.id} {...star} parallaxOffset={parallaxOffset} />
       ))}
 
       {/* Asteroids */}
       {asteroids.map((asteroid) => (
-        <div
-          key={asteroid.id}
-          className="absolute opacity-45"
-          style={{
-            left: `${asteroid.x}px`,
-            top: `${asteroid.y - parallaxOffset}px`,
-            transform: `translate(-50%, -50%) rotate(${asteroid.rotation}deg)`,
-          }}
-        >
-          <svg
-            width={asteroid.size}
-            height={asteroid.size}
-            viewBox={`0 0 ${asteroid.size} ${asteroid.size}`}
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d={getAsteroidPath(asteroid.shape, asteroid.size)}
-              fill="#57534e"
-              stroke="#78716c"
-              strokeWidth="0.6"
-              opacity="0.7"
-            />
-            <circle
-              cx={asteroid.size * 0.25}
-              cy={asteroid.size * 0.3}
-              r={asteroid.size * 0.09}
-              fill="#44403c"
-              opacity="0.6"
-            />
-            <circle
-              cx={asteroid.size * 0.65}
-              cy={asteroid.size * 0.55}
-              r={asteroid.size * 0.07}
-              fill="#44403c"
-              opacity="0.5"
-            />
-            <circle
-              cx={asteroid.size * 0.4}
-              cy={asteroid.size * 0.7}
-              r={asteroid.size * 0.05}
-              fill="#44403c"
-              opacity="0.4"
-            />
-            <circle
-              cx={asteroid.size * 0.7}
-              cy={asteroid.size * 0.25}
-              r={asteroid.size * 0.04}
-              fill="#44403c"
-              opacity="0.5"
-            />
-            <circle
-              cx={asteroid.size * 0.35}
-              cy={asteroid.size * 0.5}
-              r={asteroid.size * 0.06}
-              fill="#44403c"
-              opacity="0.4"
-            />
-            <circle
-              cx={asteroid.size * 0.5}
-              cy={asteroid.size * 0.35}
-              r={asteroid.size * 0.03}
-              fill="#78716c"
-              opacity="0.3"
-            />
-            <circle
-              cx={asteroid.size * 0.55}
-              cy={asteroid.size * 0.75}
-              r={asteroid.size * 0.025}
-              fill="#78716c"
-              opacity="0.25"
-            />
-          </svg>
-        </div>
+        <Asteroid key={asteroid.id} {...asteroid} parallaxOffset={parallaxOffset} />
       ))}
 
       {/* Spaceships */}
       {spaceships.map((spaceship, i) => (
-        <div
-          key={i}
-          className="absolute opacity-55"
-          style={{
-            left: `${spaceship.x}px`,
-            top: `${spaceship.y - parallaxOffset}px`,
-            transform: `translate(-50%, -50%) rotate(${spaceship.rotation}deg)`,
-          }}
-        >
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="drop-shadow-[0_0_4px_rgba(34,211,238,0.3)]"
-          >
-            <path
-              d="M30 20 L10 15 L10 25 Z"
-              fill={`url(#spaceshipGradient${i + 1})`}
-              stroke="#0d9488"
-              strokeWidth="0.5"
-            />
-            <path d="M15 15 L8 10 L10 15 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
-            <path d="M15 25 L8 30 L10 25 Z" fill="#064e3b" stroke="#047857" strokeWidth="0.5" />
-            <circle cx="18" cy="20" r="3" fill="#0d9488" opacity="0.6" />
-            <circle cx="10" cy="20" r="2" fill="#0d9488" opacity="0.4">
-              <animate
-                attributeName="opacity"
-                values="0.2;0.5;0.2"
-                dur="0.8s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <defs>
-              <linearGradient id={`spaceshipGradient${i + 1}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#064e3b" />
-                <stop offset="100%" stopColor="#0f766e" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <div
-            className="absolute top-1/2 -translate-y-1/2"
-            style={{
-              right: "28px",
-              width: "20px",
-              height: "2px",
-              background: "linear-gradient(to left, rgba(13,148,136,0.3), transparent)",
-              filter: "blur(1px)",
-            }}
-          >
-            <div
-              className="absolute inset-0 animate-pulse"
-              style={{
-                background: "linear-gradient(to left, rgba(6,78,59,0.2), transparent)",
-              }}
-            />
-          </div>
-        </div>
+        <Spaceship key={i} {...spaceship} parallaxOffset={parallaxOffset} index={i} />
       ))}
 
       {/* Space Invader Aliens */}
