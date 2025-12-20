@@ -17,6 +17,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Nathanial Hapeman Portfolio",
   description: "Portfolio of Nathanial Hapeman - Software Generalist",
+  openGraph: {
+    title: "Nathanial Hapeman Portfolio",
+    description: "Portfolio of Nathanial Hapeman - Software Generalist",
+    url: "https://nhapeman.com",
+    siteName: "Nathanial Hapeman Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nathanial Hapeman Portfolio",
+    description: "Portfolio of Nathanial Hapeman - Software Generalist",
+  },
 };
 
 export default function RootLayout({
