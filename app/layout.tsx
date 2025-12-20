@@ -24,11 +24,20 @@ export const metadata: Metadata = {
     siteName: "Nathanial Hapeman Portfolio",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/space-bg-banner.png",
+        width: 1200,
+        height: 600,
+        alt: "Nathanial Hapeman Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nathanial Hapeman Portfolio",
     description: "Portfolio of Nathanial Hapeman - Software Generalist",
+    images: ["/space-bg-banner.png"],
   },
 };
 
