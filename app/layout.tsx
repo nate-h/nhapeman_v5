@@ -16,8 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Nathanial Hapeman Portfolio",
-  description:
-    "Portfolio of Nathanial Hapeman - Full Stack Developer specializing in React, Next.js, and modern web technologies",
+  description: "Portfolio of Nathanial Hapeman - Software Generalist",
 };
 
 export default function RootLayout({
