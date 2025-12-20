@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { experience, projects, books, skills } from "../data";
+import { experience, projects, books, skills } from "./data";
 
 describe("Data exports", () => {
   it("should export experience array", () => {
