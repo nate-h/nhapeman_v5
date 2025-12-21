@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/space-bg-banner.jpg",
-        width: 1200,
-        height: 600,
+        width: 1260,
+        height: 630,
         alt: "Nathanial Hapeman Portfolio",
       },
     ],
