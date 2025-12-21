@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/space-bg-banner.png",
+        url: "/space-bg-banner.jpg",
         width: 1200,
         height: 600,
         alt: "Nathanial Hapeman Portfolio",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nathanial Hapeman Portfolio",
     description: "Portfolio of Nathanial Hapeman - Software Generalist",
-    images: ["/space-bg-banner.png"],
+    images: ["/space-bg-banner.jpg"],
   },
 };
 
