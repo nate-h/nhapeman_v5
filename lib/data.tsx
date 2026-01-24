@@ -27,21 +27,41 @@ export const experience: Experience[] = [
             <strong>Lead developer on Python-based automated wafer probing framework</strong>
             <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
               <li>
-                Delivered multi-fold performance improvements on inherited systems, doubling wafer
-                testing capacity
+                Doubled throughput on legacy systems while achieving near-theoretical runtimes on
+                newer systems
               </li>
-              <li>The framework emphasizes exceptional UX without compromising test speed</li>
-              <li>Well documented with many demos </li>
-              <li>Mocked instruments for production testing and faster development</li>
-              <li>Multi-system support per computer, and composite SMU capabilities</li>
+              <li>
+                Support for multiple hardware configurations with parallel orchestration
+                capabilities
+              </li>
+              <li>
+                Built hardware abstraction layer with instrument mocking for CI/CD and rapid
+                development cycles
+              </li>
+              <li>
+                Created comprehensive demos and simulations to accelerate operator onboarding and
+                proficiency
+              </li>
+              <li>
+                Worked cross-functionally with physicists to build analysis tools in Python,
+                validate experimental results, qualify hardware systems, and architect test
+                configurations
+              </li>
             </ul>
           </li>
           <li style={{ marginBottom: "0.75rem" }}>
-            <strong>Full stack developer on quantum device testing frameworks</strong>
+            <strong>
+              Fullstack developer on real-time data acquisition and visualization platforms for
+              quantum-relevant data
+            </strong>
             <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
               <li>
-                Built multiple web applications for visualization and acquisition of large-scale
-                quantum-relevant data
+                Created a universal, cross-network device visualizer for semiconductors using WKB
+                polygons from a database
+              </li>
+              <li>
+                Core contributor on data pipeline handling large-scale sensor telemetry with HDF5
+                and SQL backendsZ
               </li>
               <li>
                 Implemented real-time plotting and analysis tools using Plotly, WebSockets, Vue, and
@@ -50,10 +70,6 @@ export const experience: Experience[] = [
               <li>
                 Created tools to visualize device yield by overlaying database-aggregated test
                 results on devices
-              </li>
-              <li>
-                Created a universal, cross-network device visualizer for semiconductors using WKB
-                polygons from a database
               </li>
             </ul>
           </li>
@@ -73,7 +89,9 @@ export const experience: Experience[] = [
     tags: [
       "Full Stack",
       "Python",
+      "TypeScript",
       "FastAPI",
+      "OpenAPI",
       "Vue.js",
       "React",
       "TypeScript",
@@ -111,15 +129,24 @@ export const experience: Experience[] = [
           <li style={{ marginBottom: "0.75rem" }}>
             <strong>Computer Vision Aquaculture Project</strong>
             <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
-              <li>Lead architect and dev on an image annotation website</li>
+              <li>
+                Lead architect and developer on image annotation website using Angular, Flask,
+                Postgres, AWS
+              </li>
               <li>
                 Worked extensively with annotation team to improve the website user experience
               </li>
-              <li>Imported and cleaned training data from third party sources</li>
-              <li>Built dashboard to monitor the annotation data pipeline and annotator stats</li>
+              <li>
+                Imported and cleaned training data from third party sources while working with
+                internal annotators
+              </li>
+              <li>
+                Built dashboard to monitor and control image pipeline, track annotator performance,
+                inspect anomalies
+              </li>
               <li>
                 Developed multiple computer vision solutions like multi-label recognition, quality
-                filtering, image scoring.
+                filtering, image scoring
               </li>
               <li>
                 Core contributor to a ML data pipeline built on Pachyderm, AWS, and Kubernetes,
@@ -180,21 +207,6 @@ export const experience: Experience[] = [
       "Kubernetes",
     ],
   },
-  // {
-  //   id: "3",
-  //   company: "FrackOptima",
-  //   logoUrl: "/logos/frackoptima.png",
-  //   position: "Software Engineer (Part-time)",
-  //   period: "May 2016 - October 2017",
-  //   description: (
-  //     <p>
-  //       Part-time software engineer for a hydraulic fracturing company specializing in software and services for optimal
-  //       hydraulic fracturing treatments. Primarily worked on the company website and fracking simulator while maintaining
-  //       full-time position at Applied Invention.
-  //     </p>
-  //   ),
-  //   tags: ["Full Stack"],
-  // },
 ];
 
 export const projects: Project[] = [
