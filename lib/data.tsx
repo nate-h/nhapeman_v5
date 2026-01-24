@@ -44,7 +44,16 @@ export const experience: Experience[] = [
                 quantum-relevant data
               </li>
               <li>
-                Developed zoomable, interactive JavaScript canvas applications for data analysis
+                Implemented real-time plotting and analysis tools using Plotly, WebSockets, Vue, and
+                IPC
+              </li>
+              <li>
+                Created tools to visualize device yield by overlaying database-aggregated test
+                results on devices
+              </li>
+              <li>
+                Created a universal, cross-network device visualizer for semiconductors using WKB
+                polygons from a database
               </li>
             </ul>
           </li>
@@ -109,11 +118,12 @@ export const experience: Experience[] = [
               <li>Imported and cleaned training data from third party sources</li>
               <li>Built dashboard to monitor the annotation data pipeline and annotator stats</li>
               <li>
-                Developed several computer vision solutions, one of which prevented a costly human
-                annotation step
+                Developed multiple computer vision solutions like multi-label recognition, quality
+                filtering, image scoring.
               </li>
               <li>
-                Worked on Pachyderm data pipeline that turned raw images into machine annotations
+                Core contributor to a ML data pipeline built on Pachyderm, AWS, and Kubernetes,
+                operating at ~400 pods
               </li>
             </ul>
           </li>
@@ -121,11 +131,12 @@ export const experience: Experience[] = [
             <strong>Rental Forecasting Project</strong>
             <ul style={{ marginLeft: "1.5rem", marginTop: "0.25rem", listStyleType: "circle" }}>
               <li>
-                Helped scale rental forecasting program to run on all US locations by reducing
-                bottlenecks
+                Added to team to resolve performance bottlenecks and expand forecasting system to
+                nationwide scope
               </li>
               <li>
-                Optimizing involved rewriting queries, parallelizing, memoizing, NumPy and profiling
+                Delivered a 50x performance improvement through query optimization, parallel
+                execution, memoization, profiling, and migrating hot paths to C++
               </li>
               <li>
                 Automated model accuracy checks and used slack bots to report discrepancies and
@@ -165,6 +176,8 @@ export const experience: Experience[] = [
       "NumPy",
       "C++",
       "Sass",
+      "AWS",
+      "Kubernetes",
     ],
   },
   // {

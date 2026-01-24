@@ -62,7 +62,7 @@ export default function Books() {
           persuasion, initiative, leadership, resilience, developing other leaders, aligning
           incentives, and staying agile without falling into bureaucracy. Books like Turn the Ship
           Around and No Rules Rules have shaped me in those areas. Others have pushed me to
-          contribute to anything that strengthens my country — see Skunk Works or Apple in China.
+          contribute to anything that strengthens my country, such as Skunk Works or Apple in China.
         </p>
 
         {/* Horizontal Scrolling Container */}
