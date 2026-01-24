@@ -12,8 +12,9 @@ export const experience: Experience[] = [
       <>
         <p>
           HRL is a world leader in silicon-based spin qubits for quantum computing. I help in many
-          ways but primarily by leading development on an automated testing framework used for whole
-          wafer testing and packaged devices.
+          ways, primarily serving as lead architect and developer of a Python-based testing
+          framework. It is used on both new and existing systems for fully automated whole-wafer and
+          packaged-device testing.
         </p>
         <ul
           style={{
