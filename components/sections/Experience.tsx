@@ -14,7 +14,7 @@ export default function Experience() {
           My professional journey across various companies and technologies.
         </p>
 
-        <div className="space-y-8 max-w-4xl mx-auto">
+        <div className="space-y-8 max-w-5xl mx-auto">
           {experience.map((job) => (
             <div
               key={job.id}

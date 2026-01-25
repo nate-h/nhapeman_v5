@@ -62,7 +62,7 @@ export const experience: Experience[] = [
               </li>
               <li>
                 Core contributor on data pipeline handling large-scale sensor telemetry with HDF5
-                and SQL backendsZ
+                and SQL backends
               </li>
               <li>
                 Implemented real-time plotting and analysis tools using Plotly, WebSockets, Vue, and
@@ -95,7 +95,6 @@ export const experience: Experience[] = [
       "OpenAPI",
       "Vue.js",
       "React",
-      "TypeScript",
       "Hardware Integration",
       "Data Visualization",
       "Quasar",
