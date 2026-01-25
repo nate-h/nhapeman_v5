@@ -20,8 +20,8 @@ export default function Experience() {
               key={job.id}
               className="bg-gradient-to-br from-slate-800/90 to-emerald-900/50 backdrop-blur-md rounded-xl p-6 border border-emerald-500/40 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30"
             >
-              <div className="flex flex-col md:flex-row gap-6">
-                {/* Logo */}
+              {/* Header with Logo */}
+              <div className="flex items-center gap-4 mb-4">
                 <div className="flex-shrink-0">
                   <div className="relative w-20 h-20 bg-slate-900/80 rounded-lg border border-emerald-500/40 flex items-center justify-center overflow-hidden p-2">
                     {job.logoUrl ? (
@@ -38,30 +38,26 @@ export default function Experience() {
                     )}
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="mb-3">
-                    <h3 className="text-2xl font-bold text-cyan-300 mb-1">{job.company}</h3>
-                    <p className="text-emerald-300 font-medium mb-1">{job.position}</p>
-                    <p className="text-slate-400 text-sm">{job.period}</p>
-                  </div>
-
-                  <div className="text-slate-300 mb-4 leading-relaxed space-y-3">
-                    {job.description}
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {job.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-emerald-900/40 border border-emerald-500/30 text-emerald-200 text-xs rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-cyan-300">{job.company}</h3>
+                  <p className="text-emerald-300 font-medium">{job.position}</p>
+                  <p className="text-slate-400 text-sm">{job.period}</p>
                 </div>
+              </div>
+
+              {/* Description */}
+              <div className="text-slate-300 mb-4 leading-relaxed space-y-3">{job.description}</div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {job.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-emerald-900/40 border border-emerald-500/30 text-emerald-200 text-xs rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
