@@ -749,7 +749,6 @@ export const books: Book[] = [
     coverUrl: "/books/hooked.jpg",
   },
   { title: "Irresistible", author: "Adam Alter", coverUrl: "/books/irresistible.jpg" },
-  { title: "Elon Musk", author: "Ashlee Vance", coverUrl: "/books/elon-musk-vance.jpg" },
   { title: "Elon Musk", author: "Walter Isaacson", coverUrl: "/books/elon-musk-isaacson.jpg" },
   { title: "Steve Jobs", author: "Walter Isaacson", coverUrl: "/books/steve-jobs.jpg" },
   { title: "A Mind at Play", author: "Jimmy Soni", coverUrl: "/books/mind-at-play.jpg" },
