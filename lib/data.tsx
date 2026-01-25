@@ -32,21 +32,20 @@ export const experience: Experience[] = [
                 newer systems
               </li>
               <li>
-                Support for multiple hardware configurations with parallel orchestration
-                capabilities
+                Designed centralized control architecture enabling single-host operation of multiple
+                probe stations
               </li>
               <li>
-                Built hardware abstraction layer with instrument mocking for CI/CD and rapid
-                development cycles
+                Built a hardware abstraction layer with instrument mocking for full CI/CD testing
+                and rapid iteration
               </li>
               <li>
-                Created comprehensive demos and simulations to accelerate operator onboarding and
-                proficiency
+                Partnered with physicists to qualify hardware, explore results, and design scalable
+                test architectures
               </li>
               <li>
-                Worked cross-functionally with physicists to build analysis tools in Python,
-                validate experimental results, qualify hardware systems, and architect test
-                configurations
+                Implemented Pydantic-driven configurations, Typer-based CLIs, and MS SQL +
+                HDF5-backed data pipelines
               </li>
             </ul>
           </li>
@@ -61,8 +60,8 @@ export const experience: Experience[] = [
                 polygons from a database
               </li>
               <li>
-                Core contributor on data pipeline handling large-scale sensor telemetry with HDF5
-                and SQL backends
+                Built Monaco-based REPL frontend and Python backend with custom data serialization
+                for experiment control
               </li>
               <li>
                 Implemented real-time plotting and analysis tools using Plotly, WebSockets, Vue, and
@@ -104,6 +103,7 @@ export const experience: Experience[] = [
       "HDF5",
       "Plotly",
       "Sass",
+      "Material",
     ],
   },
   {
